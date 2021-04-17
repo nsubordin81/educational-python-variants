@@ -16,7 +16,7 @@ so that implementors of the language can have consensus on what is and is not pa
 
 Some languages have gone the route of having a standards body actually maintain a standardization for their language. 
 Two prominent standards organizations that perform this are ANSI and ISO. A (probably not comprehensive) list of 
-languages that have been standardized by these orgs includes: 
+languages that have been standardized by these orgs includes:<sup>8</sup>
 - Ada
 - APT (a numerical control language)
 - Basic
@@ -81,7 +81,8 @@ language about what would be required and what the benefits would be.
 
 ### difference between a language specification (a.k.a standard or definition) and a specification language?
 
-Specification languages are languages created for determining program correctness. 
+This is somewhat of a non-sequitor, but for those who might have been confused about the similar naming like I was, 
+Specification languages are languages created for determining program correctness.<sup>1</sup> 
 if I write a program that is supposed to add to numbers and return their sum, 
 a specification language would provide me a way to prove that the program will 
 find the sum for any valid inputs. 
@@ -203,3 +204,4 @@ http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
 5.
 6.
 7. Other Java implementations, https://dwheeler.com/java-imp.html#:~:text=These%20implementations%20include%20GNU's%20gcj,by%20Microsoft%20and%20by%20Mono).
+8. Lambda The Ultimate, http://lambda-the-ultimate.org/node/4111. 
