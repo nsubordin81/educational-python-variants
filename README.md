@@ -37,7 +37,7 @@ languages that have been standardized by these orgs includes:<sup>8</sup>
 
 Python's standard is maintained apart from these organizations as described below. The rigor of the ANSI and ISO standards 
 is criticised by some because the languages become so stable they fail to be open to changes from the outside. For a low 
-level language like C this may very well be appropriate, but that is one of the advantages of Python's niche
+level language like C this may very well be appropriate, but that is one of the advantages of Python's niche. 
 
 ### Python's Programming Language Specification
 
@@ -50,7 +50,9 @@ freedom to extend comes from.
 The document also mentions that CPython is the widespread reference implementation and implementation notes
 are provided throughout the document where special considerations having to do with that implementation.
 
-So 
+So cPython is the 'de facto' implementation of python, but even in this case there are implementation details that
+get in the way of the abstract definition of the language that the python language reference attempts to provide. And,
+arguably, that's a good thing because it means cPython and the other implementations aren't fully constrained by these standards.
 
 ### History of Python's specification<sup>2, 3, 4</sup>
 
@@ -92,21 +94,30 @@ another tells you whether a program in language A was implemented correctly"
 
 ### Important language design considerations<sup>1</sup>
 
+The three below topics, as well as other cross cutting ideas, are all fundamental to 
+language design and need to be represented in some way in the language specification.
+
 Syntax
+
 Answers the question, how do I know this program's structure is correct? What words are ok
 and where can I put them?
 
-This is mostly accomplished through context free grammars
+In language design, syntax definition is mostly accomplished through context free grammars (CFGs).
 
 Names and Types
 
+What is the vocabulary of the language? How does the language bind names, how does scoping work? 
+What are the values that a program can perform operations on, a.k.a the types? what kind of 
+type system is made available for language users so they can understand how to write operations, 
+how can the language protect users from making mistakes through its knowledge of types?
+
 Semantics
 
-### What is the minimum and what can optionally be specified?
-
-A minimum specification is probably a formal description of syntax and then 
-some description of the semantics. Without a reference implementation though that still 
-leaves a lot to be guessed by any would be implementor of the language
+Just like in natural language, semantics are the meaning of the programming statements. When 
+a statement is executed, what does it mean? What actually happens to the variables during an 
+assignment? How are expressions evaluated? As covered in <sup>1</sup>, There is a lot of 
+value in building Semantic models that aren't tied to one particular choice of machine, 
+and Python accomplishes this.
 
 ## Why has python seemingly developed more implementations than other languages?
 
