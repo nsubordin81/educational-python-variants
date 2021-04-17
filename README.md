@@ -64,7 +64,7 @@ find the sum for any valid inputs.
 So the difference could be simply described as "one tells you how language A is supposed to implemented, 
 another tells you whether a program in language A was implemented correctly"
 
-#### Important language design considerations<sup>1</sup>
+### Important language design considerations<sup>1</sup>
 
 Syntax
 Answers the question, how do I know this program's structure is correct? What words are ok
@@ -76,11 +76,22 @@ Names and Types
 
 Semantics
 
-
-
 ### What is the minimum and what can optionally be specified?
 
+A minimum specification is probably a formal description of syntax and then 
+some description of the semantics. Without a reference implementation though that still 
+leaves a lot to be guessed by any would be implementor of the language
+
 ## Why has python seemingly developed more implementations than other languages?
+
+Some theories were discussed above, but will repeat them here for good measure:
+
+- Guido Van Rossum wanted a general purpose programming language that was extensible as an early goal of 
+  Python in the 1990s.
+    - despite having formal descriptions of lexical and syntactical concerns, the semantic model is described with natural language
+    - CPython as the reference implementation doesn't stop others from dreaming of other ways for interpretation, compilation and hardware virtualization to happen
+- Python has had strong community support from the beginning, developers fall in love with how expressive and simple it is, so they would rather rewrite it than use another language
+
 
 ### Is this really true? What about Java, C#, C++, Javascript, Ruby, etc. which have been around a while? 
 
