@@ -15,7 +15,7 @@ Language specifications are the documentation of what it means to write a progra
 so that implementors of the language can have consensus on what is and is not part of the language.
 
 Some languages have gone the route of having a standards body actually maintain a standardization for their language. 
-Two prominent standards organizations that perform this are ANSI and ISO. A (probably not comprehensive) list of 
+Some prominent standards organizations that perform this are ANSI, ISO, and IEEE. A (probably not comprehensive) list of 
 languages that have been standardized by these orgs includes:<sup>8</sup>
 - Ada
 - APT (a numerical control language)
