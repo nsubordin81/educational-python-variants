@@ -206,13 +206,13 @@ The changes made to the implementation may diverge so much with cPython that if 
 you can't rely on the community of cPython developers to fix it. You also can't expect newer python \
 features to make it to these implementations with the same speed that they hit the reference implementation. 
 
-## Sources Consulted
+## Sources Of Information (want more depth? I highly recommend 1, and thanks to python and other implementations for generally being very good about documentation)
 1. Programming Languages, Principles and Paradigms Allen Tucker, Robert Noonan
 2. https://en.wikipedia.org/wiki/Programming_language_specification
 3. Python General Faq page https://docs.python.org/3/faq/general.html
 4. Oral History of Guido Van Rossum https://www.youtube.com/watch?v=Pzkdci2HDpU, Jul 26, 2018
 http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
-5.
-6.
+5. Python Language Reference https://docs.python.org/3/reference/index.html
+6. Python Enhancement Proposals  https://www.python.org/dev/peps/
 7. Other Java implementations, https://dwheeler.com/java-imp.html#:~:text=These%20implementations%20include%20GNU's%20gcj,by%20Microsoft%20and%20by%20Mono).
-8. Lambda The Ultimate, http://lambda-the-ultimate.org/node/4111. 
+8. Lambda The Ultimate, question about Standardized languages http://lambda-the-ultimate.org/node/4111. 
