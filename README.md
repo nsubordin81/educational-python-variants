@@ -14,6 +14,31 @@ exploration of different python implementations
 Language specifications are the documentation of what it means to write a program in that language, 
 so that implementors of the language can have consensus on what is and is not part of the language.
 
+Some languages have gone the route of having a standards body actually maintain a standardization for their language. 
+Two prominent standards organizations that perform this are ANSI and ISO. A (probably not comprehensive) list of 
+languages that have been standardized by these orgs includes: 
+- Ada
+- APT (a numerical control language)
+- Basic
+- C
+- C++
+- Cobol
+- Common Lisp
+- Dibol
+- Forth
+- Fortran
+- Mumps/M
+- PANCM
+- Pascal
+- PL/B (aka Databus)
+- PL/I
+- Rexx
+- Smalltalk, SQL
+
+Python's standard is maintained apart from these organizations as described below. The rigor of the ANSI and ISO standards 
+is criticised by some because the languages become so stable they fail to be open to changes from the outside. For a low 
+level language like C this may very well be appropriate, but that is one of the advantages of Python's niche
+
 ### Python's Programming Language Specification
 
 Python's specification is the python language reference and lives here: https://docs.python.org/3/reference/index.html<sup>5</sup>
@@ -95,6 +120,16 @@ Some theories were discussed above, but will repeat them here for good measure:
 
 ### Is this really true? What about Java, C#, C++, Javascript, Ruby, etc. which have been around a while? 
 
+Other languages do have alternate implementations, Python is not unique in this aspect. However, Python may be unique in that it celebrates this fact somewhat, 
+is proud of the malleability of its spec. Other languages like Java have alternate implementations, but not so many that are trying to do something fundamentally 
+different. More often than not, these alternative implementations are just trying to enable a different group of users than the reference impl. Here are some 
+reasons for alternate implementaitons or at least partial (compiler, interpreter, etc.) for other languages: 
+
+- Java<sup>7</sup>
+    - As Java became more commercial and closed over the years by Sun and Oracle, open source implementations (e.g. OpenJDK) offer a way to use Java without the licensing and litigation concerns
+    - There are many compilers and transpilers both open source and proprietary that compile bytecode to machine code to run faster on target architectures
+    - just like Pypy, Java has implementations that are looking at performance boosts from JIT compilers
+    - Also similar to Pypy, there is a JVM written in Java
 
 
 ## Why have various implementations come about? 
@@ -165,3 +200,6 @@ features to make it to these implementations with the same speed that they hit t
 3. Python General Faq page https://docs.python.org/3/faq/general.html
 4. Oral History of Guido Van Rossum https://www.youtube.com/watch?v=Pzkdci2HDpU, Jul 26, 2018
 http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
+5.
+6.
+7. Other Java implementations, https://dwheeler.com/java-imp.html#:~:text=These%20implementations%20include%20GNU's%20gcj,by%20Microsoft%20and%20by%20Mono).
