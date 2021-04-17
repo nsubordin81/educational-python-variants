@@ -9,15 +9,80 @@ exploration of different python implementations
 
 ## Implementation V. Specification
 
-### What is in a lanugage specification? 
+### What is a language specification? 
 
-### difference between a language specification and a specification language? 
+Language specifications are the documentation of what it means to write a program in that language, 
+so that implementors of the language can have consensus on what is and is not part of the language.
+
+### Python's Programming Language Specification
+
+Python's specification is the python language reference and lives here: https://docs.python.org/3/reference/index.html<sup>5</sup>
+
+Note that the very first section in the reference implementation points out that everything except for syntax
+and lexical analysis is described in natural language, and that this is intentional because this is where
+freedom to extend comes from. 
+
+The document also mentions that CPython is the widespread reference implementation and implementation notes
+are provided throughout the document where special considerations having to do with that implementation.
+
+So 
+
+### History of Python's specification<sup>2, 3, 4</sup>
+
+Guido Van Rossum shared the code first time Feb 1991 0.9.0. The original language was in some ways 
+a reaction to limitations in the languages he was working with at the time (ABC not extensible, 
+Amoeba system calls not accessible from Bourne shell or C scripts), which may partly explain 
+why python's design is so extensible that we have alternative implementations surfacing.
+
+From that time, the python community has been involved but also guided by Rossum, and several 
+mechanisms have come about as a process for enhancing the language. the semantic versioning has 
+remained in place, with Major.Minor.Release(+, a0) as is commonplace to find on many software projects
+now. Each of these versions may require an upgrade to the overall language specification. This is
+why if you go to the language reference page you can select from the most recent release version of 
+each minor version of python to read a version of the reference tailored to that version of the
+CPython language. 
+
+There is a lot of history on the evolution of python and lots of archives of conversations because 
+of the high community involvement. For example, the decision to do a major version upgrade of 
+python from 2 to 3 that had some non-backwards compatible changes to, amongst other things, 
+remove redundant paths to the same functionality. Not really in scope for this research but all
+of these docs are fairly easy to find, either linked to python.org or published elsewhere.
+
+On the language development side there is also a tracking mechanism for enhancement requests that is 
+open to the developer community and members of the public to read Python Enhancement Proposals (PEP). 
+These can be informational but are generally proposals for changes to the language, with specific 
+language about what would be required and what the benefits would be. 
+ https://www.python.org/dev/peps/<sup>6</sup>
+
+### difference between a language specification (a.k.a standard or definition) and a specification language?
+
+Specification languages are languages created for determining program correctness. 
+if I write a program that is supposed to add to numbers and return their sum, 
+a specification language would provide me a way to prove that the program will 
+find the sum for any valid inputs. 
+
+So the difference could be simply described as "one tells you how language A is supposed to implemented, 
+another tells you whether a program in language A was implemented correctly"
+
+#### Important language design considerations<sup>1</sup>
+
+Syntax
+Answers the question, how do I know this program's structure is correct? What words are ok
+and where can I put them?
+
+This is mostly accomplished through context free grammars
+
+Names and Types
+
+Semantics
+
+
 
 ### What is the minimum and what can optionally be specified?
 
 ## Why has python seemingly developed more implementations than other languages?
 
-### Is this really true? What about Java, C#, C++, Ruby,  
+### Is this really true? What about Java, C#, C++, Javascript, Ruby, etc. which have been around a while? 
 
 
 
@@ -84,5 +149,8 @@ you can't rely on the community of cPython developers to fix it. You also can't 
 features to make it to these implementations with the same speed that they hit the reference implementation. 
 
 ## Sources Consulted
-https://en.wikipedia.org/wiki/Programming_language_specification
+1. Programming Languages, Principles and Paradigms Allen Tucker, Robert Noonan
+2. https://en.wikipedia.org/wiki/Programming_language_specification
+3. Python General Faq page https://docs.python.org/3/faq/general.html
+4. Oral History of Guido Van Rossum https://www.youtube.com/watch?v=Pzkdci2HDpU, Jul 26, 2018
 http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
