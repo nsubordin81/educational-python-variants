@@ -1,4 +1,4 @@
-# Jython
+# Cython
 
 <!-- TOC -->
 - [Reference Card](#reference-card)

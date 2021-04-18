@@ -1,8 +1,8 @@
 # Research On Language Specifications and Python Implementations
 
 <!-- TOC -->
- - [Implementation V. Specification](#implementation-v.-specification)
- - [Important Language Design Considerations](#important-language-design-considerations)
+ - [Implementation V. Specification](#implementation-v-specification)
+ - [Important Language Design Considerations](#important-language-design-considerations1)
 <!-- /TOC -->
 
 
@@ -179,17 +179,82 @@ State of concurrency and parallelism in Python, should greenlets be built in?
 
 ### C, C++, Fortran Extensions
 
-### Libraries, Frameworks and Platforms
+You can write extensions to python in C, C++ and even Fortran (though I didn't look into this last one very much). In addition to giving 
+you speed, it enables you to define new built in python types and also make C system calls within your code. 
+
+However, rather than writing these extensions in C/C++, which has its own set of documentation on docs.python.org, https://docs.python.org/3/extending/extending.html is advised that you use one of the higher level tools like Cython and Numba that allow you to write these extensions in a special superset of python
+
+### Explore Modules, Frameworks and Platforms
+
+There is an appetite for python in the scientific community because it is a fully featured language that is easy to work with, you can get
+something up and running quickly and iteratively with it. As a result, the community using python for scientific applications have made a lot
+of efforts towards making python run faster either by overcoming its limitations or extending it with new libraries that are highly optimized for
+the types of operations that are typically performed. There is a suite of packages like SciPy, Numpy, and Pandas, that rely on optimized math libraries like Linear Algebra Package (LAPACK) and Basic Linear Algebra Subprograms (BLAS), and also do things like suspending the Global Interpreter lock to perform parallel operations: https://developer.ibm.com/languages/python/articles/ba-accelerate-python/
 
 ### Newer Python Features For Concurrency and Parallelism
+
+Core cPython has also made additions to its concurrency support in the standard library in python 3+ to give you asynchronous capabilities for operations like I/O and also the multiprocessor package that gets around the Global Interpreter Lock (GIL) by going up one level to spawn new processes and different CPU cores that each have their own GIL.
 
 ## Why would you take the reimplementing Python or using Python variant approach over something that just works with cPython?
 
 ### cPython just doesn't have the feature and you think it should
 
+Stackless python and Pypy are both good examples of this. Stackless was and effort to create a python language that would support continuations. Here's some interesting remarks around that: http://wiki.c2.com/?StacklessPython. 
+
+Pypy was conceived from the desire to be 'python written in python'. It achieved python written in a slightly restricted rpython, but also has achieved much more, like an interpreter that can generate just-in-time compilers for dynamic languages other than python. https://rpython.readthedocs.io/en/latest/
+
 ### Using the other implementation saves you from having to write custom code
 
-## Why doesn't Python just adopt alternate implementations? 
+Cython is a great example of this, it allows you to write extensions in python that is only slightly modified, so you don't have to 
+go through the process of learning to write them in C/C++
+
+If you can achieve significant performance boosts with Pypy and your code is at the right python version then this can save you from 
+having to write extensions in the first place
+
+If you have a main application built in java or c# and you want to provide the ability for people to script plugins or 
+other features in an older version of python, then Jython or IronPython could be a good fit. In this case you really want interoperability
+between the languages without having to deal with message transfer and handcoding a lot of serialization and deserialization yourself
+
+## Why Wouldn't You Switch Implementations To Of These When you need their features?
+
+The obvious one here is just lack of support for recent language features. If one part of your application
+could really benefit from just in time compilation speedup but another part relies on a 3.9 feature, as if this 
+writing you can't have both with Pypy. Similarly for stackless, but if you are doing concurrency on a massive scale and
+don't mind missing out on some newer features then maybe you don't mind ;)
+
+Alternative implementations may also just not behave the way in which you would expect if using them in place of cPython, 
+becauase in addition to being compatible with cPython versions, they need to be compatible with c extensions and packages 
+that are built to work with cPython. You generally just don't get guarantees that the community supporting your implementation
+is going to catch the wide variety of special cases that can come up 
+
+This actually becomes even more pronounced with the interoperability versions. Jython and IronPython are both only up to version compatibility with
+cPython 2.7 at the time of this writing in 2021, which means they only have support for versions of python which are considered 
+officially deprecated by the python community, no longer receiving support or security updates
+
+The notable exception to most of this advice for both performance and interoperability is Cython. Even though Cython offers more reassurance than
+guarantee that it will be able to compile your code, it is not really as crucial, because its goal is to make it easier for your to 
+write something that will run almost as fast as C but written in something that is close to the latest version of cPython. The regular
+python interpreter and VM would then be able to have your python code call the precompiled extensions you write 
+
+
+So when it comes to switching implementations just for a performance boost or because you want to interface with other language modules,
+the advice I have is to really consider whether your use case is isolated enough that your decision to go with another implementation
+won't paint you into a corner. For language interoperability, you can stay at the output level and write a translation layer with some common messaging format, for performance, you could optimize your code or write a c extension. You really need to have 
+
+## Why doesn't Python just adopt alternate implementations that provide such nice features? 
+
+My view on this after studying it a fair bit is this: generally, alternative implementations of python are willing to 
+substantially change its core in order to get one very cool feature. If the changes were less drastic, then these wouldn't
+be alternate implementations, they'd be modules, frameworks or some other type of extension. if you are a python language 
+developer, you already have a lot of things to be concerned with, such as not introducing incompatible changes, and 
+continuing to support features that rely on the existing interpreter and VM.
+
+Most of the alternative implementations require changing the bytecode and vm that the interpreter uses or modifying something
+else core to the language (the C stack in the case of stackless). While these have stabilized into their own usable forms, 
+maintainers of the language would be dealing with a lot of new complexity and fundamental shifts in the language if they were
+to bring in these features. That doesn't stop them from being under consideration as PEPs though, it is just more likely that
+they will either be deferred indefinitely or you'll see a more consensus driven form of them incorporated down the line
+(A
 
 
 
