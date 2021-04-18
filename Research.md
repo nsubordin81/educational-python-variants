@@ -6,6 +6,11 @@
  - [Why Are There Interesting Python Implementation Alternatives?](#why-are-there-interesting-Python-alternatives)
  - [What Less Drastic Things Can You Do Than Reimplementing The Language?](#what-are-less-drastic-things-you-can-do-than-reimplementing)
  - [Why Make An Implementation Or Use One Over Toughing It Out with cPython?](#why-would-you-take-the-reimplementing-Python-or-using-Python-variant-approach-over-something-that-just-works-with-cPython)
+ - [Why Not Switch To One Of These Implementations Just Because?](#why-wouldnt-you-switch-implementations-to-one-of-these-whenever-you-need-their-features)
+ - [Will These Implementations Replace CPython?](#why-doesnt-python-just-adopt-alternate-implementations-that-provide-such-nice-features)
+ - [What Are Some Interesting Implementations?](#what-are-some-interesting-implementations)
+ - [What Are Their Limitations?](#they-are-often-behind-the-curve-of-specification-upgrades-maintained-by-a-much-smaller-community)
+ - [Sources, Read More About Language Design And Python Implementations](#sources-of-information)
 <!-- /TOC -->
 
 
