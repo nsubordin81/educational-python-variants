@@ -1,9 +1,9 @@
 # Research On Language Specifications and Python Implementations
 
 <!-- TOC -->
-[Implementation V. Specification](#Implementation V. Specification)
-[Important Language Design Considerations](#Important language design considerations)
-
+ - [Implementation V. Specification](#Implementation V. Specification)
+ - [Important Language Design Considerations](#Important language design considerations)
+<!-- /TOC -->
 
 
 ## Implementation V. Specification
