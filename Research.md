@@ -5,7 +5,7 @@
  - [Important Language Design Considerations](#important-language-design-considerations1)
  - [Why Are There Interesting Python Implementation Alternatives?](#why-are-there-interesting-Python-alternatives)
  - [What Less Drastic Things Can You Do Than Reimplementing The Language?](#what-are-less-drastic-things-you-can-do-than-reimplementing)
- - [Why Make An Implementation Or Use One Over Toughing It Out with cPython?](#why-would-you-take-the-reimplementing-Python-or-using-Python-variant-approach-over-something-that-just-works-with-cPython)
+ - [Why Make An Implementation Or Use One Over Toughing It Out with CPython?](#why-would-you-take-the-reimplementing-Python-or-using-Python-variant-approach-over-something-that-just-works-with-CPython)
  - [Why Not Switch To One Of These Implementations Just Because?](#why-wouldnt-you-switch-implementations-to-one-of-these-whenever-you-need-their-features)
  - [Will These Implementations Replace CPython?](#why-doesnt-python-just-adopt-alternate-implementations-that-provide-such-nice-features)
  - [What Are Some Interesting Implementations?](#what-are-some-interesting-implementations)
@@ -16,7 +16,23 @@
 
 ## Implementation V. Specification
 
-Python.org has a list of what it recognizes as alternative implementations of the python specification, which includes IronPython, Jython, Pypy, Stackless Python, and Micro Python https://www.python.org/download/alternatives/
+I have a couple of useful analogies that help me, the first being natural because we use them all the time as programmers, and the second being a good general example. 
+
+The first is the analogy of specifications as an interface. Just like a function's 
+interface says what its inputs and expected outputs are but leaves the concrete to the body of the function, so does a specificationleave the implementation details to the various implementations. This is not a perfect analogy. It is a gross simiplification of languages to model them as a single function the way we think of functions typically, and if they were functions then they would be typically side effecting. The range of possible inputs and expected outputs for a lanugage is usually huge in scope. Also, languages define the control structures and other functional aspects of writing programs, so different implementations (like later versions) 
+can change what tools are available. Higher order functions might allow the analogy to hold there, but it is starting to break down.
+
+In addition, Specifications aren't always fully 
+formal (python's is not, there is a lot of natural language in it), and you can have language implementations that are practically 
+usable that don't meet the full specification. There is also the notion of standardization which is discussed below which is much 
+more thorough around what is and is not a compliant implementation, so there are varying approaches. 
+
+The second analogy is to that of blueprints for a building or for an engineering project. This fits both better and worse. Better in the sense that buildings are unlikely to fully match their blueprints, there isn't the expectation that you will take something from the written page and have all the knowledge you need to replicate it in the real world. It also works better when thinking about wrestling with semantics and interpretation of the architect's ideas into the final product. You can choose different materials, you can make more drastic alterations, you can change the invisble parts and provide benefits to the would be users of what you are building just so long as you stay true to the vision of what the blueprints were aiming for. It is a worse analogy because the building or rocket or what have you is a physical, tangible thing that has to deal with the constraints of being manifest in the world, and so in that way the functional interface example was better.
+
+Nevertheless, this analogy works for the core idea which is concrete implementations of a language can have variety with respect to their specifications, and just as with functions, different implementations can change factors outside of their interface, such as 
+how fast they run, how reliable they are, whether or not they rely on lower level building blocks to get the job done, etc. 
+
+While CPython is the de facto standard implementation for implementing Python, Python.org has a list of what it recognizes as alternative implementations of the python specification, which includes IronPython, Jython, Pypy, Stackless Python, and Micro Python https://www.python.org/download/alternatives/.
 
 ### What is a language specification? 
 
@@ -66,9 +82,9 @@ freedom to extend comes from.
 The document also mentions that CPython is the widespread reference implementation and implementation notes
 are provided throughout the document where special considerations having to do with that implementation.
 
-So cPython is the 'de facto' implementation of Python, but even in cPython's case there are implementation details that
+So CPython is the 'de facto' implementation of Python, but even in CPython's case there are implementation details that
 get in the way of the abstract definition of the language that the Python Language Reference attempts to provide. And,
-arguably, that's a good thing because it means cPython and the other implementations aren't fully constrained by these standards.
+arguably, that's a good thing because it means CPython and the other implementations aren't fully constrained by these standards.
 
 ### History of Python's specification<sup>2, 3, 4</sup>
 
@@ -162,7 +178,7 @@ reasons for alternate implementaitons or at least partial (compiler, interpreter
     - just like Pypy, Java has implementations that are looking at performance boosts from JIT compilers
     - Also similar to Pypy, there is a JVM written in Java
 - JavaScript
-    - ECMAScript is the specification, and there are a variety of different 'engines' acting as interpretors for javascript, a lot more probably than Python generally https://en.wikipedia.org/wiki/List_of_ECMAScript_engines
+    - ECMAScript is the specification, and there are a variety of different 'engines' acting as interpretors for Javascript, a lot more probably than Python generally https://en.wikipedia.org/wiki/List_of_ECMAScript_engines
 - Most of these implementations are either for browser specific interfaces, smaller footprint interpreters for embedded JS and IoT devices, JIT compilation and GraalVM supports interoperability for languages. Not as much experimentation or branching of the core runtime architecture like some of the Python ones do, but again there's webassembly. . . so I guess they are doing it their own way.
 - Ruby
     - there are several implementations of Ruby. As a close cousin of Python at least in its layer of abstraction at runtime, Ruby seems to have a similar list of offshoots. Many of them are also now defunct, but there are some that are still actively maintained and these generally look to be supporting interoperabiliy with ruby and other languages or at least supporting cross compilation of ruby so it can be run as bytecode or machine lanugage. Rubinius is an interesting attempt to do what Pypy does for Python by writing an interpreter in Ruby, it is still porting over from C++ as of this writing it looks like.
@@ -186,12 +202,12 @@ A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s an
 
 ### Interoperability
 
-Sometimes it is desirable to embed python scripts inside of a slightly lower level language like Java or C#, have python compile to something that a javascript engine could run
+Sometimes it is desirable to embed python scripts inside of a slightly lower level language like Java or C#, have python compile to something that a Javascript engine could run
 
 ### Types
 
 Compilation for static type checking for speed has not been historically high on the list for standard python, but Cython
-is being used for essentially this, compiling a python superset language that gives you tools for manual type declaration and optimization options down to optimized C instructions. Numba is another compiler that aims to do this, though instead of compilation it is interpreted and uses llvm and jit to speed up segements of your code. A good comparison is on this blog post: http://stephanhoyer.com/2015/04/09/numba-vs-cython-how-to-choose/
+is being used for essentially this, compiling a python superset language that gives you tools for manual type declaration and optimization options down to optimized C instructions. Numba is another compiler that aims to do this, though instead of compilation it is interpreted and uses llvm and jit to speed up segements of your code. A good comparison is on this blog post: http://stephanhoyer.com/2015/04/09/numba-vs-Cython-how-to-choose/
 
 Also of interest to the topic of typing would be Guido Van Rossum's talk on the approach to typing in python 3 at PyCon 2015 https://www.youtube.com/watch?v=2wDvzy6Hgxg&t=1012s . This approach at the time was being considered internally for program correctness and other concerns type systems could assist with more than it was about speed, and it was being conducted independently of the influence of alternative python implementations.
 
@@ -209,15 +225,15 @@ However, rather than writing these extensions in C/C++, which has its own set of
 There is an appetite for Python in the scientific community because it is a fully featured language that is easy to work with, you can get
 something up and running quickly and iteratively with it. As a result, the community using Python for scientific applications have made a lot
 of efforts towards making Python run faster either by overcoming its limitations or extending it with new libraries that are highly optimized for
-the types of operations that are typically performed. There is a suite of packages like SciPy, Numpy, and Pandas, that rely on optimized math libraries like Linear Algebra Package (LAPACK) and Basic Linear Algebra Subprograms (BLAS), and also do things like suspending the Global Interpreter lock to perform parallel operations: https://developer.ibm.com/languages/Python/articles/ba-accelerate-Python/
+the types of operations that are typically performed. There is a suite of packages like SciPy, Numpy, and Pandas, that rely on optimized math libraries like Linear Algebra Package (LAPACK) and Basic Linear Algebra Subprograms (BLAS) (source at bottom), and also do things like suspending the Global Interpreter lock to perform parallel operations (source) and special indexing operations (source): https://developer.ibm.com/languages/Python/articles/ba-accelerate-Python/
 
 ### Newer Python Features For Concurrency and Parallelism
 
-Core cPython has also made additions to its concurrency support in the standard library in Python 3+ to give you asynchronous capabilities for operations like I/O and also the multiprocessor package that gets around the Global Interpreter Lock (GIL) by going up one level to spawn new processes and different CPU cores that each have their own GIL.
+Core CPython has also made additions to its concurrency support in the standard library in Python 3+ to give you asynchronous capabilities for operations like I/O and also the multiprocessor package that gets around the Global Interpreter Lock (GIL) by going up one level to spawn new processes and different CPU cores that each have their own GIL.
 
-## Why would you take the reimplementing Python or using Python variant approach over something that just works with cPython?
+## Why would you take the reimplementing Python or using Python variant approach over something that just works with CPython?
 
-### cPython just doesn't have the feature and you think it should
+### CPython just doesn't have the feature and you think it should
 
 Stackless Python and Pypy are both good examples of this. Stackless was and effort to create a Python language that would support continuations. Here's some interesting remarks around that: http://wiki.c2.com/?StacklessPython. 
 
@@ -231,7 +247,7 @@ go through the process of learning to write them in C/C++
 If you can achieve significant performance boosts with Pypy and your code is at the right Python version then this can save you from 
 having to write extensions in the first place
 
-If you have a main application built in java or c# and you want to provide the ability for people to script plugins or 
+If you have a main application built in Java or c# and you want to provide the ability for people to script plugins or 
 other features in an older version of Python, then Jython or IronPython could be a good fit. In this case you really want interoperability
 between the languages without having to deal with message transfer and handcoding a lot of serialization and deserialization yourself
 
@@ -242,18 +258,18 @@ could really benefit from just in time compilation speedup but another part reli
 writing you can't have both with Pypy. Similarly for stackless, but if you are doing concurrency on a massive scale and
 don't mind missing out on some newer features then maybe you don't mind ;)
 
-Alternative implementations may also just not behave the way in which you would expect if using them in place of cPython, 
-becauase in addition to being compatible with cPython versions, they need to be compatible with c extensions and packages 
-that are built to work with cPython. You generally just don't get guarantees that the community supporting your implementation
+Alternative implementations may also just not behave the way in which you would expect if using them in place of CPython, 
+becauase in addition to being compatible with CPython versions, they need to be compatible with c extensions and packages 
+that are built to work with CPython. You generally just don't get guarantees that the community supporting your implementation
 is going to catch the wide variety of special cases that can come up 
 
 This actually becomes even more pronounced with the interoperability versions. Jython and IronPython are both only up to version compatibility with
-cPython 2.7 at the time of this writing in 2021, which means they only have support for versions of Python which are considered 
+CPython 2.7 at the time of this writing in 2021, which means they only have support for versions of Python which are considered 
 officially deprecated by the Python community, no longer receiving support or security updates
 
 The notable exception to most of this advice for both performance and interoperability is Cython. Even though Cython offers more reassurance than
 guarantee that it will be able to compile your code, it is not really as crucial, because its goal is to make it easier for your to 
-write something that will run almost as fast as C but written in something that is close to the latest version of cPython. The regular
+write something that will run almost as fast as C but written in something that is close to the latest version of CPython. The regular
 Python interpreter and VM would then be able to have your Python code call the precompiled extensions you write 
 
 
@@ -294,8 +310,8 @@ list of python compiler projects over the years: https://github.com/pfalcon/awes
 - jython:
 - iron Python:
 
-The changes made to the implementation may diverge so much with cPython that if there is a problem, 
-you can't rely on the community of cPython developers to fix it. You also can't expect newer Python \
+The changes made to the implementation may diverge so much with CPython that if there is a problem, 
+you can't rely on the community of CPython developers to fix it. You also can't expect newer Python \
 features to make it to these implementations with the same speed that they hit the reference implementation. 
 
 ## Sources Of Information 
@@ -308,5 +324,5 @@ features to make it to these implementations with the same speed that they hit t
 http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
 5. Python Language Reference https://docs.Python.org/3/reference/index.html
 6. Python Enhancement Proposals  https://www.Python.org/dev/peps/
-7. Other Java implementations, https://dwheeler.com/java-imp.html#:~:text=These%20implementations%20include%20GNU's%20gcj,by%20Microsoft%20and%20by%20Mono).
+7. Other Java implementations, https://dwheeler.com/Java-imp.html#:~:text=These%20implementations%20include%20GNU's%20gcj,by%20Microsoft%20and%20by%20Mono).
 8. Lambda The Ultimate, question about Standardized languages http://lambda-the-ultimate.org/node/4111. 
