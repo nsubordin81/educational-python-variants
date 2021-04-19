@@ -301,7 +301,7 @@ features to make it to these implementations with the same speed that they hit t
 ## Sources Of Information 
 (want more depth? I highly recommend 1, and thanks to Python and other implementations for generally being very good about documentation)
 
-1. Programming Languages, Principles and Paradigms Allen Tucker, Robert Noonan
+1. Tucker, Allen B. and Robert E. Noonan. "*Programming Languages: Principles and Paradigms.*" 2nd ed., McGraw Hill, 2007.
 2. https://en.wikipedia.org/wiki/Programming_language_specification
 3. Python General Faq page https://docs.Python.org/3/faq/general.html
 4. Oral History of Guido Van Rossum https://www.youtube.com/watch?v=Pzkdci2HDpU, Jul 26, 2018
