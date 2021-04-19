@@ -16,28 +16,36 @@
 
 ## Implementation V. Specification
 
-I have a couple of useful analogies that help me, the first being natural because we use them all the time as programmers, and the second being a good general example. 
+Language specifications are the documentation of what it means to write a program in that language, 
+so that implementors of the language can have consensus on what is and is not part of the language.
 
-The first is the analogy of specifications as an interface. Just like a function's 
+Implementations are how languages end up being coded so they can be used. Usually there is one implementation that 
+is thought of as the reference implementation because it is the most widely used and accepted version. That implementation
+evolves as well so it is usually versioned so there is a sense of what the reference implementation is at different versions
+of its development.
+
+I have a couple of useful analogies that helped me with this concept, the first being natural because we use them all the time as programmers, and the second being a good general example. 
+
+1. The Function Interface: The first is the analogy of specifications as an interface. Just like a function's 
 interface says what its inputs and expected outputs are but leaves the concrete to the body of the function, so does a specification leave the implementation details to the various implementations. This is not a perfect analogy. It is a gross simiplification of languages to model them as a function from inputs to outputs. The range of possible inputs and expected outputs for a lanugage is usually huge in scope. Also, languages define the control structures and other functional aspects of writing programs, so different implementations (like later versions) 
 can change what tools are available. Higher order functions might allow the analogy to hold there, but it is still starting to break down, and while it is probably possible to define the language as a function, like it might be possible to model many things as functions, it becomes less useful to our purposes the more you try to make the comparison hold.
 
 In addition, Specifications aren't always fully 
-formal (python's is not, there is a lot of natural language in it), and you can have language implementations that are practically 
+formal (python's is not, there is a lot of natural language in the semantic portion), and you can have language implementations that are practically 
 usable that don't meet the full specification. There is also the notion of standardization which is discussed below which is much 
 more thorough around what is and is not a compliant implementation, so there are varying approaches. 
 
-The second analogy is to that of blueprints for a building or for an engineering project. This fits both better and worse. Better in the sense that buildings are unlikely to fully match their blueprints, there isn't the expectation that you will take something from the written page and have all the knowledge you need to replicate it in the real world. It also works better when thinking about wrestling with semantics and interpretation of the architect's ideas into the final product. You can choose different materials, you can make more drastic alterations, you can change the invisble parts and provide benefits to the would be users of what you are building just so long as you stay true to the vision of what the blueprints were aiming for. It is a worse analogy because the building or rocket or what have you is a physical, tangible thing that has to deal with the constraints of being manifest in the world, and so in that way the functional interface example was better.
+2. The Blueprint: The second analogy is to that of blueprints for a building or for an engineering project. This fits both better and worse. Better in the sense that buildings are unlikely to fully match their blueprints, there isn't the expectation that you will take something from the written page and have all the knowledge you need to replicate it in the real world. It also works better when thinking about wrestling with semantics and interpretation of the architect's ideas into the final product. You can choose different materials, you can make more drastic alterations, you can change the invisble parts and provide benefits to the would be users of what you are building just so long as you stay true to the vision of what the blueprints were aiming for. However, it is a worse analogy because the building or rocket or what have you is a physical, tangible thing that has to deal with the constraints of being manifest in the world, and so in that way the functional interface example was better.
 
-Nevertheless, this analogy works for the core idea which is concrete implementations of a language can have variety with respect to their specifications, and just as with functions, different implementations can change factors outside of their interface, such as 
+Nevertheless, I'd argue that these analogies both work for the core idea which is concrete implementations of a language can have variety with respect to their specifications, and just as with functions, different implementations can change factors outside of their interface, such as 
 how fast they run, how reliable they are, whether or not they rely on lower level building blocks to get the job done, etc. 
+
+There is a great third description of this idea in the python language reference itself (TODO provide source and quote)
 
 While CPython is the de facto standard implementation for implementing Python, Python.org has a list of what it recognizes as alternative implementations of the python specification, which includes IronPython, Jython, Pypy, Stackless Python, and Micro Python https://www.python.org/download/alternatives/.
 
 ### What is a language specification? 
 
-Language specifications are the documentation of what it means to write a program in that language, 
-so that implementors of the language can have consensus on what is and is not part of the language.
 
 Some languages have gone the route of having a standards body actually maintain a standardization for their language. 
 Some prominent standards organizations that perform this are ANSI, ISO, ECMA, and IEEE. A (probably not comprehensive) list of 
