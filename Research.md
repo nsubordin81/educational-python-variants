@@ -16,6 +16,8 @@
 
 ## Implementation V. Specification
 
+Python.org has a list of what it recognizes as alternative implementations of the python specification, which includes IronPython, Jython, Pypy, Stackless Python, and Micro Python https://www.python.org/download/alternatives/
+
 ### What is a language specification? 
 
 Language specifications are the documentation of what it means to write a program in that language, 
@@ -173,24 +175,34 @@ reasons for alternate implementaitons or at least partial (compiler, interpreter
 
 #### GIL, concurrency and parallelism
 
-stackless Python and greenlets
+stackless Python and tasklets allow for massive cooperative asynchronous concurrency without parallelism.
 
-State of concurrency and parallelism in Python, should greenlets be built in? 
+State of concurrency and parallelism in Python is that it has had support for concurrency with threads for some time, and it also
+is able to support multi core parallelism through multiprocessing. There is even support for reactive streams in python through RxPy. It seems as though you need to be more conscious of what type of concurrency you are aiming to do than with other languages as the GIL is still a concern.
 
+There have been some attempts to remove the GIL in Pypy https://morepypy.blogspot.com/2017/08/lets-remove-global-interpreter-lock.html
+
+A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s
 
 ### Interoperability
 
+Sometimes it is desirable to embed python scripts inside of a slightly lower level language like Java or C#, have python compile to something that a javascript engine could run
 
 ### Types
 
-## What are less drastic things you can do than reimplementing? 
+Compilation for static type checking for speed has not been historically high on the list for standard python, but Cython
+is being used for essentially this, compiling a python superset language that gives you tools for manual type declaration and optimization options down to optimized C instructions. Numba is another compiler that aims to do this, though instead of compilation it is interpreted and uses llvm and jit to speed up segements of your code. A good comparison is on this blog post: http://stephanhoyer.com/2015/04/09/numba-vs-cython-how-to-choose/
+
+Also of interest to the topic of typing would be Guido Van Rossum's talk on the approach to typing in python 3 at PyCon 2015 https://www.youtube.com/watch?v=2wDvzy6Hgxg&t=1012s . This approach at the time was being considered internally for program correctness and other concerns type systems could assist with more than it was about speed, and it was being conducted independently of the influence of alternative python implementations.
+
+## What Are Less Drastic Things You Can Do Than Reimplementing?
 
 ### C, C++, Fortran Extensions
 
 You can write extensions to Python in C, C++ and even Fortran (though I didn't look into this last one very much). In addition to giving 
 you speed, it enables you to define new built in Python types and also make C system calls within your code. 
 
-However, rather than writing these extensions in C/C++, which has its own set of documentation on docs.Python.org, https://docs.Python.org/3/extending/extending.html is advised that you use one of the higher level tools like Cython and Numba that allow you to write these extensions in a special superset of Python
+However, rather than writing these extensions in C/C++, which has its own set of documentation on docs.Python.org, https://docs.Python.org/3/extending/extending.html python docs advise that you use one of the higher level tools like Cython and Numba that allow you to write these extensions in a special superset of Python
 
 ### Explore Modules, Frameworks and Platforms
 
@@ -266,7 +278,11 @@ they will either be deferred indefinitely or you'll see a more consensus driven 
 
 
 
-## What are some interesting implementations? 
+## What are some interesting implementations?
+
+Python.org and the language reference docs both list what python considers to be compatible alternative implementations to the python programming language https://www.python.org/download/alternatives/ https://docs.python.org/3/reference/introduction.html#alternate-implementations. Note that Cython is not covered here, being both a restricted python language as well as one more geared towards compiling extensions than python programs. Numba is likely also excluded for the same reason, but there are also others omitted because they aren't deemed to meet the specification corresponding to any specific python version. Here is a more broad list of alternate languages as well as interpreter and compiler variations: 
+
+https://github.com/pfalcon/awesome-python-compilers
 
 ## What are their limitations?
 
