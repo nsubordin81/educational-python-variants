@@ -177,12 +177,12 @@ reasons for alternate implementaitons or at least partial (compiler, interpreter
 
 stackless Python and tasklets allow for massive cooperative asynchronous concurrency without parallelism.
 
-State of concurrency and parallelism in Python is that it has had support for concurrency with threads for some time, and it also
-is able to support multi core parallelism through multiprocessing. There is even support for reactive streams in python through RxPy. It seems as though you need to be more conscious of what type of concurrency you are aiming to do than with other languages as the GIL is still a concern.
+State of concurrency and parallelism in Python is that it has had support for concurrency with threads for some time and since 3.5 there have been significant upgrades to it in 3.2 and up https://wiki.python.org/moin/Concurrency
+Python is also able to support multi core parallelism through multiprocessing. There is even support for reactive streams in python through RxPy. It seems as though you need to be more conscious of what type of concurrency you are aiming to do than with other languages as the GIL is still a concern.
 
 There have been some attempts to remove the GIL in Pypy https://morepypy.blogspot.com/2017/08/lets-remove-global-interpreter-lock.html
 
-A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s and concurrency in general. A bit tongue in cheek, but some good points. Multiprocessing is not going to be as efficient as multithreading because threads can put things in and take things out of memory with no overhead and share state and processes cannot. 
+A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s and concurrency in general. A bit tongue in cheek, but some good points. Multiprocessing is not going to be as efficient as multithreading because threads can put things in and take things out of memory with no overhead and share state and processes cannot. Async takes away a lot of the costs of using threads for single core concurrency, but there is a lot of additional code you need to learn to write and refactor out of your existing codebase to use it properly. That being said, if you use threading wrong, the kinds of difficult to observe bugs you'll get make taking the time to learn async properly worthwhile.
 
 ### Interoperability
 
@@ -282,8 +282,8 @@ they will either be deferred indefinitely or you'll see a more consensus driven 
 
 Python.org and the language reference docs both list what python considers to be compatible alternative implementations to the python programming language https://www.python.org/download/alternatives/ https://docs.python.org/3/reference/introduction.html#alternate-implementations. Note that Cython is not covered here, being both a restricted python language as well as one more geared towards compiling extensions than python programs. Numba is likely also excluded for the same reason, but there are also others omitted because they aren't deemed to meet the specification corresponding to any specific python version. Here is a more broad list of alternate languages as well as interpreter and compiler variations: 
 
-more comprehensive list of implementaitons https://wiki.python.org/moin/PythonImplementations
-https://github.com/pfalcon/awesome-python-compilers
+more comprehensive list of python implementations https://wiki.python.org/moin/PythonImplementations
+list of python compiler projects over the years: https://github.com/pfalcon/awesome-python-compilers
 
 ## What are their limitations?
 
