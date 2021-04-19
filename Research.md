@@ -19,8 +19,8 @@
 I have a couple of useful analogies that help me, the first being natural because we use them all the time as programmers, and the second being a good general example. 
 
 The first is the analogy of specifications as an interface. Just like a function's 
-interface says what its inputs and expected outputs are but leaves the concrete to the body of the function, so does a specificationleave the implementation details to the various implementations. This is not a perfect analogy. It is a gross simiplification of languages to model them as a single function the way we think of functions typically, and if they were functions then they would be typically side effecting. The range of possible inputs and expected outputs for a lanugage is usually huge in scope. Also, languages define the control structures and other functional aspects of writing programs, so different implementations (like later versions) 
-can change what tools are available. Higher order functions might allow the analogy to hold there, but it is starting to break down.
+interface says what its inputs and expected outputs are but leaves the concrete to the body of the function, so does a specification leave the implementation details to the various implementations. This is not a perfect analogy. It is a gross simiplification of languages to model them as a function from inputs to outputs. The range of possible inputs and expected outputs for a lanugage is usually huge in scope. Also, languages define the control structures and other functional aspects of writing programs, so different implementations (like later versions) 
+can change what tools are available. Higher order functions might allow the analogy to hold there, but it is still starting to break down, and while it is probably possible to define the language as a function, like it might be possible to model many things as functions, it becomes less useful to our purposes the more you try to make the comparison hold.
 
 In addition, Specifications aren't always fully 
 formal (python's is not, there is a lot of natural language in it), and you can have language implementations that are practically 
