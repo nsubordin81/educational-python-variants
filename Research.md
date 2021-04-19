@@ -182,7 +182,7 @@ Python is also able to support multi core parallelism through multiprocessing. T
 
 There have been some attempts to remove the GIL in Pypy https://morepypy.blogspot.com/2017/08/lets-remove-global-interpreter-lock.html
 
-A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s and concurrency in general. A bit tongue in cheek, but some good points. Multiprocessing is not going to be as efficient as multithreading because threads can put things in and take things out of memory with no overhead and share state and processes cannot. Async takes away a lot of the costs of using threads for single core concurrency, but there is a lot of additional code you need to learn to write and refactor out of your existing codebase to use it properly. That being said, if you use threading wrong, the kinds of difficult to observe bugs you'll get make taking the time to learn async properly worthwhile.
+A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s and concurrency in general. Some good points. Multiprocessing is not going to be as efficient as multithreading because threads can put things in and take things out of memory with no overhead and share state and processes cannot. Async takes away a lot of the costs of using threads for single core concurrency, but there is a lot of additional code you need to learn to write and refactor out of your existing codebase to use it properly. That being said, if you use threading wrong, the kinds of difficult to observe bugs you'll get make taking the time to learn async properly worthwhile.
 
 ### Interoperability
 
