@@ -182,7 +182,7 @@ is able to support multi core parallelism through multiprocessing. There is even
 
 There have been some attempts to remove the GIL in Pypy https://morepypy.blogspot.com/2017/08/lets-remove-global-interpreter-lock.html
 
-A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s
+A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s and concurrency in general. A bit tongue in cheek, but some good points. Multiprocessing is not going to be as efficient as multithreading because threads can put things in and take things out of memory with no overhead and share state and processes cannot. 
 
 ### Interoperability
 
@@ -282,6 +282,7 @@ they will either be deferred indefinitely or you'll see a more consensus driven 
 
 Python.org and the language reference docs both list what python considers to be compatible alternative implementations to the python programming language https://www.python.org/download/alternatives/ https://docs.python.org/3/reference/introduction.html#alternate-implementations. Note that Cython is not covered here, being both a restricted python language as well as one more geared towards compiling extensions than python programs. Numba is likely also excluded for the same reason, but there are also others omitted because they aren't deemed to meet the specification corresponding to any specific python version. Here is a more broad list of alternate languages as well as interpreter and compiler variations: 
 
+more comprehensive list of implementaitons https://wiki.python.org/moin/PythonImplementations
 https://github.com/pfalcon/awesome-python-compilers
 
 ## What are their limitations?
