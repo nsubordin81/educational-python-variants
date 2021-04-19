@@ -177,7 +177,7 @@ reasons for alternate implementaitons or at least partial (compiler, interpreter
 
 stackless Python and tasklets allow for massive cooperative asynchronous concurrency without parallelism.
 
-State of concurrency and parallelism in Python is that it has had support for concurrency with threads for some time and since 3.5 there have been significant upgrades to it in 3.2 and up https://wiki.python.org/moin/Concurrency
+State of concurrency and parallelism in Python is that it has had support for concurrency with threads for some time and there have been significant upgrades to it in 3.2 and up https://wiki.python.org/moin/Concurrency
 Python is also able to support multi core parallelism through multiprocessing. There is even support for reactive streams in python through RxPy. It seems as though you need to be more conscious of what type of concurrency you are aiming to do than with other languages as the GIL is still a concern.
 
 There have been some attempts to remove the GIL in Pypy https://morepypy.blogspot.com/2017/08/lets-remove-global-interpreter-lock.html
