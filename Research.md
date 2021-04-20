@@ -294,11 +294,11 @@ developer, you already have a lot of things to be concerned with, such as not in
 continuing to support features that rely on the existing interpreter and VM.
 
 Most of the alternative implementations require changing the bytecode and vm that the interpreter uses or modifying something
-else core to the language (the C stack in the case of stackless). While these have stabilized into their own usable forms, 
+else core to the language (dependency on the C stack in the case of stackless). While these have stabilized into their own usable forms, 
 maintainers of the language would be dealing with a lot of new complexity and fundamental shifts in the language if they were
 to bring in these features. That doesn't stop them from being under consideration as PEPs though, it is just more likely that
 they will either be deferred indefinitely or you'll see a more consensus driven form of them incorporated down the line
-(A
+(greenlets could be thought of as an example of this for Stackless Python, and maybe we'll eventually se a JIT compiler introduced into CPython)
 
 ## What are some interesting implementations?
 
@@ -310,15 +310,21 @@ list of python compiler projects over the years: https://github.com/pfalcon/awes
 ## What are their limitations?
 
 ### They are often behind the curve of specification upgrades, maintained by a much smaller community
-- pypy: 
-- stackless: 
-- shedskin:
-- jython:
-- iron Python:
 
 The changes made to the implementation may diverge so much with CPython that if there is a problem, 
 you can't rely on the community of CPython developers to fix it. You also can't expect newer Python \
-features to make it to these implementations with the same speed that they hit the reference implementation. 
+features to make it to these implementations with the same speed that they hit the reference implementation
+
+### They aren't as stable generally
+
+In some cases the alternate implementations are focused on a narrower set of use cases than what any given Python
+programmer might want to do, and so for some applications they won't match the core python behavior 
+
+### Most of them put some constraint on how you write your Python
+
+Pypy uses RPython because the interpreter needs a little more hinting to do its JIT generation magic. Cython needs type declarations
+so it can compile down to C. Stackless doesn't use the c stack, so in some ways that is a departure from the way you might think about 
+how function execution is handled, even if it is unnecessary as Stackless advocates will claim
 
 ## Sources Of Information 
 (want more depth? I highly recommend 1, and thanks to Python and other implementations for generally being very good about documentation)
