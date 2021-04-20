@@ -17,7 +17,7 @@
 ## Implementation V. Specification
 
 Language specifications are the documentation of what it means to write a program in that language, 
-so that implementors of the language can have consensus on what is and is not part of the language.
+so that implementors of the language can have consensus on what is and is not part of the language. (source)
 
 Implementations are how languages end up being coded so they can be used. Usually there is one implementation that 
 is thought of as the reference implementation because it is the most widely used and accepted version. That implementation
@@ -300,8 +300,6 @@ to bring in these features. That doesn't stop them from being under consideratio
 they will either be deferred indefinitely or you'll see a more consensus driven form of them incorporated down the line
 (A
 
-
-
 ## What are some interesting implementations?
 
 Python.org and the language reference docs both list what python considers to be compatible alternative implementations to the python programming language https://www.python.org/download/alternatives/ https://docs.python.org/3/reference/introduction.html#alternate-implementations. Note that Cython is not covered here, being both a restricted python language as well as one more geared towards compiling extensions than python programs. Numba is likely also excluded for the same reason, but there are also others omitted because they aren't deemed to meet the specification corresponding to any specific python version. Here is a more broad list of alternate languages as well as interpreter and compiler variations: 
@@ -329,8 +327,10 @@ features to make it to these implementations with the same speed that they hit t
 2. https://en.wikipedia.org/wiki/Programming_language_specification
 3. Python General Faq page https://docs.Python.org/3/faq/general.html
 4. Oral History of Guido Van Rossum https://www.youtube.com/watch?v=Pzkdci2HDpU, Jul 26, 2018
-http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
 5. Python Language Reference https://docs.Python.org/3/reference/index.html
 6. Python Enhancement Proposals  https://www.Python.org/dev/peps/
 7. Other Java implementations, https://dwheeler.com/Java-imp.html#:~:text=These%20implementations%20include%20GNU's%20gcj,by%20Microsoft%20and%20by%20Mono).
 8. Lambda The Ultimate, question about Standardized languages http://lambda-the-ultimate.org/node/4111. 
+9. Programming Language Specification https://en.wikipedia.org/wiki/Programming_language_specification
+10. Starkiller Thesis http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
+11. Why There Are So Many Pythons https://www.toptal.com/python/why-are-there-so-many-pythons
