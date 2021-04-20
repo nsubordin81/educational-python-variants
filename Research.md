@@ -176,27 +176,7 @@ Some (subjective) theories were discussed in other sections, but will repeat the
 - The Python community likes to keep their standard reference implementation familiar and carefully control its feature set, but they also embrace the existence of other implementations of the language
 
 
-### Is Python alone with this branching behavior? What about Java, C#, C++, Javascript, Ruby, etc. which have been around a while? 
 
-Other languages do have alternate implementations, Python is not unique in this aspect. However, Python may be unique in that it celebrates this fact somewhat, 
-is proud of the malleability of its spec to the extent that the official Python documentation mentions alternatives and Guido Van Rossum has called out implementations such as Pypy or Cython as existing solutions to performance gaps in CPython like the example here: https://www.youtube.com/watch?v=2wDvzy6Hgxg&t=1012s .. 
-
-Other languages like Java have alternate implementations, and for some of the same reasons. More often than not, these alternative implementations are just trying to enable a different group of users than the reference implementation is trying to serve, like people coding for browsers, embedded devices, coming from other languages, or looking for higher performance. Here are some reasons for and links to either complete alternate implementaitons or at least partial alternatives ( different compiler, interpreter, etc.) for other languages: 
-
-- Java<sup>7</sup>
-    - As Java became more commercial and closed over the years by Sun and Oracle, open source implementations (e.g. OpenJDK) offer a way to use Java without the licensing and litigation concerns
-    - There are many compilers and transpilers both open source and proprietary that compile bytecode to a machine code specialized for a target architecture
-    - just like Pypy, Java has implementations that are looking at performance boosts from JIT compilers (source)
-    - Also similar to Pypy, there is a JVM written in Java (source)
-- JavaScript
-    - ECMAScript is the specification, and there are a variety of different 'engines' acting as interpretors for Javascript, a lot more probably than Python generally https://en.wikipedia.org/wiki/List_of_ECMAScript_engines
-- Most of these implementations are either for browser specific interfaces, smaller footprint interpreters for embedded JS and IoT devices, JIT compilation and GraalVM supports interoperability for languages. And then there's webassembly. . . so Python isn't totally alone in very innovative offshoots, but with the ubiquitousness of JS maybe this was inevitable.
-- Ruby
-    - there are several implementations of Ruby. As a close cousin of Python at least in its layer of abstraction at runtime, Ruby seems to have a similar list of offshoots. Many of them are also now defunct, but there are some that are still actively maintained and these generally look to be supporting interoperabiliy with ruby and other languages or at least supporting cross compilation of Ruby so it can be run as bytecode or machine lanugage. Rubinius is an interesting attempt to do what Pypy does for Python by writing an interpreter in Ruby, it is still porting over from C++ as of this writing it looks like.
-- C# 
-    - C# has an official standard referred to as the Common Language Infrastructure and a specification documentation site defined microsoft's page: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction, so does it have alternate implementations? 
-    - Before I answer, just to keep you in suspense, some news on the reference implementation front for C#: it looks like they just recently open sourced their compiler code both for the higher level Roslyn Compiler and also RyuJIT, lower level just in time compiler to translate from their intermediate language to machine code. Those are standard to .NET Core https://devblogs.microsoft.com/dotnet/the-ryujit-transition-is-complete/
-    - OK, now I will answer. Yes, there are alternative implementations, though I don't see a lot of them. C# has been more proprietary for longer than the other languages on this list, so that could explain why there aren't as many, and why the few that do exist are either trying to open up usage to non-proprietary use cases (Mono, very behind the latest .NET Core versions but used by big names like Unity), or cross platform support (Elements toolchain, Xamarin) https://en.wikipedia.org/wiki/C_Sharp_(programming_language)#Implementations
 
 ### Performance
 
@@ -222,6 +202,28 @@ Compilation for static type checking for speed has not been historically high on
 is being used for essentially this, compiling a python superset language that gives you tools for manual type declaration and optimization options down to optimized C instructions. Numba is another compiler that aims to do this, though instead of compilation it is interpreted and uses llvm and jit to speed up segements of your code. A good comparison is on this blog post: http://stephanhoyer.com/2015/04/09/numba-vs-Cython-how-to-choose/
 
 Also of interest to the topic of typing would be Guido Van Rossum's talk on the approach to typing in python 3 at PyCon 2015 https://www.youtube.com/watch?v=2wDvzy6Hgxg&t=1012s . This approach at the time was being considered internally for program correctness and other concerns type systems could assist with more than it was about speed, and it was being conducted independently of the influence of alternative python implementations.
+
+## Is Python alone with this branching behavior? What about Java, C#, C++, Javascript, Ruby, etc. which have been around a while? 
+
+Other languages do have alternate implementations, Python is not unique in this aspect. However, Python may be unique in that it celebrates this fact somewhat, 
+is proud of the malleability of its spec to the extent that the official Python documentation mentions alternatives and Guido Van Rossum has called out implementations such as Pypy or Cython as existing solutions to performance gaps in CPython like the example here: https://www.youtube.com/watch?v=2wDvzy6Hgxg&t=1012s .. 
+
+Other languages like Java have alternate implementations, and for some of the same reasons. More often than not, these alternative implementations are just trying to enable a different group of users than the reference implementation is trying to serve, like people coding for browsers, embedded devices, coming from other languages, or looking for higher performance. Here are some reasons for and links to either complete alternate implementaitons or at least partial alternatives ( different compiler, interpreter, etc.) for other languages: 
+
+- Java<sup>7</sup>
+    - As Java became more commercial and closed over the years by Sun and Oracle, open source implementations (e.g. OpenJDK) offer a way to use Java without the licensing and litigation concerns
+    - There are many compilers and transpilers both open source and proprietary that compile bytecode to a machine code specialized for a target architecture
+    - just like Pypy, Java has implementations that are looking at performance boosts from JIT compilers (source)
+    - Also similar to Pypy, there is a JVM written in Java (source)
+- JavaScript
+    - ECMAScript is the specification, and there are a variety of different 'engines' acting as interpretors for Javascript, a lot more probably than Python generally https://en.wikipedia.org/wiki/List_of_ECMAScript_engines
+- Most of these implementations are either for browser specific interfaces, smaller footprint interpreters for embedded JS and IoT devices, JIT compilation and GraalVM supports interoperability for languages. And then there's webassembly. . . so Python isn't totally alone in very innovative offshoots, but with the ubiquitousness of JS maybe this was inevitable.
+- Ruby
+    - there are several implementations of Ruby. As a close cousin of Python at least in its layer of abstraction at runtime, Ruby seems to have a similar list of offshoots. Many of them are also now defunct, but there are some that are still actively maintained and these generally look to be supporting interoperabiliy with ruby and other languages or at least supporting cross compilation of Ruby so it can be run as bytecode or machine lanugage. Rubinius is an interesting attempt to do what Pypy does for Python by writing an interpreter in Ruby, it is still porting over from C++ as of this writing it looks like.
+- C# 
+    - C# has an official standard referred to as the Common Language Infrastructure and a specification documentation site defined microsoft's page: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction, so does it have alternate implementations? 
+    - Before I answer, just to keep you in suspense, some news on the reference implementation front for C#: it looks like they just recently open sourced their compiler code both for the higher level Roslyn Compiler and also RyuJIT, lower level just in time compiler to translate from their intermediate language to machine code. Those are standard to .NET Core https://devblogs.microsoft.com/dotnet/the-ryujit-transition-is-complete/
+    - OK, now I will answer. Yes, there are alternative implementations, though I don't see a lot of them. C# has been more proprietary for longer than the other languages on this list, so that could explain why there aren't as many, and why the few that do exist are either trying to open up usage to non-proprietary use cases (Mono, very behind the latest .NET Core versions but used by big names like Unity), or cross platform support (Elements toolchain, Xamarin) https://en.wikipedia.org/wiki/C_Sharp_(programming_language)#Implementations
 
 ## What Are Less Drastic Things You Can Do Than Reimplementing?
 
