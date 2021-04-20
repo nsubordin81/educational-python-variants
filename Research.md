@@ -20,32 +20,31 @@ Language specifications are the documentation of what it means to write a progra
 so that implementors of the language can have consensus on what is and is not part of the language. (source)
 
 Implementations are how languages end up being coded so they can be used. Usually there is one implementation that 
-is thought of as the reference implementation because it is the most widely used and accepted version. That implementation
-evolves as well so it is usually versioned so there is a sense of what the reference implementation is at different versions
-of its development.
+is the most widely used and accepted version, the reference implementation. Changes to the semantics and syntax of a language represent and update to the specification. In Python's case, these changes are reflected in the versions of its language reference which mirror the version of its reference implemenation, CPython.
 
-I have a couple of useful analogies that helped me with this concept, the first being natural because we use them all the time as programmers, and the second being a good general example. 
+I have a couple of useful analogies that helped me with the difference between specification and implementation, feel free to skip this next part if you're already familiar:
 
-1. The Function Interface: The first is the analogy of specifications as an interface. Just like a function's 
-interface says what its inputs and expected outputs are but leaves the concrete to the body of the function, so does a specification leave the implementation details to the various implementations. This is not a perfect analogy. It is a gross simiplification of languages to model them as a function from inputs to outputs. The range of possible inputs and expected outputs for a lanugage is usually huge in scope. Also, languages define the control structures and other functional aspects of writing programs, so different implementations (like later versions) 
-can change what tools are available. Higher order functions might allow the analogy to hold there, but it is still starting to break down, and while it is probably possible to define the language as a function, like it might be possible to model many things as functions, it becomes less useful to our purposes the more you try to make the comparison hold.
+1. The Function Interface: The first is the analogy of specifications as an interface like that of a function's interface. Just like a function's 
+interface says what its inputs and expected outputs are but leaves the concrete to the body of the function, so does a specification leave the implementation details to the various implementations. 
 
-In addition, Specifications aren't always fully 
-formal (python's is not, there is a lot of natural language in the semantic portion), and you can have language implementations that are practically 
-usable that don't meet the full specification. There is also the notion of standardization which is discussed below which is much 
-more thorough around what is and is not a compliant implementation, so there are varying approaches. 
+This is not a perfect analogy. It is probably an oversimiplification of languages to model them as one function from inputs to outputs. The range of possible inputs and expected outputs for a lanugage is usually huge in scope. Also, a language consititutes the very magic words that functions are defined with, so the analogy continues to break down. While it is probably possible to reframe a language's specification as a formal function definition in some kind of psuedo code or mathematical notation and we might learn a great deal from that exercise, going down this path is less and less useful as a quick reference for you to think about language specifications.
 
-2. The Blueprint: The second analogy is to that of blueprints for a building or for an engineering project. This fits both better and worse. Better in the sense that buildings are unlikely to fully match their blueprints, there isn't the expectation that you will take something from the written page and have all the knowledge you need to replicate it in the real world. It also works better when thinking about wrestling with semantics and interpretation of the architect's ideas into the final product. You can choose different materials, you can make more drastic alterations, you can change the invisble parts and provide benefits to the would be users of what you are building just so long as you stay true to the vision of what the blueprints were aiming for. However, it is a worse analogy because the building or rocket or what have you is a physical, tangible thing that has to deal with the constraints of being manifest in the world, and so in that way the functional interface example was better.
+2. The Blueprint: The second analogy is to that of blueprints for a building or for an engineering project. This analogy fits both better and worse than the function interface.
+
+Analogy 2 is Better in the sense that buildings are unlikely to fully match their blueprints. There isn't the expectation that you will take something from the written page and have all the knowledge you need to construct a building or bridge with it. Many things are left up to the builder. She can choose different materials, make more drastic alterations, change the invisble parts and provide benefits to the would be users of what she is building just so long as she stays true to the vision of what the blueprints were aiming for. 
+
+Analogy 2 is worse because the building or rocket that results is a physical, tangible thing that has to deal with the constraints of being manifest in the world so designers and builders have to be less tolerant of certain kinds of deviations from their design that might not be true for languages, and so in that way the functional interface example was better.
 
 Nevertheless, I'd argue that these analogies both work for the core idea which is concrete implementations of a language can have variety with respect to their specifications, and just as with functions, different implementations can change factors outside of their interface, such as 
 how fast they run, how reliable they are, whether or not they rely on lower level building blocks to get the job done, etc. 
 
-There is a great third description of this idea in the python language reference itself (TODO provide source and quote)
+There is a great third description of this idea in the Python language reference itself 
+
+"While I am trying to be as precise as possible, I chose to use English rather than formal specifications for everything except syntax and lexical analysis. This should make the document more understandable to the average reader, but will leave room for ambiguities. Consequently, if you were coming from Mars and tried to re-implement Python from this document alone, you might have to guess things and in fact you would probably end up implementing quite a different language. On the other hand, if you are using Python and wonder what the precise rules about a particular area of the language are, you should definitely be able to find them here. If you would like to see a more formal definition of the language, maybe you could volunteer your time — or invent a cloning machine :-)."  - probably Guido Van Rossum, python language reference https://docs.python.org/3/reference/introduction.html#alternate-implementations
 
 While CPython is the de facto standard implementation for implementing Python, Python.org has a list of what it recognizes as alternative implementations of the python specification, which includes IronPython, Jython, Pypy, Stackless Python, and Micro Python https://www.python.org/download/alternatives/.
 
-### What is a language specification? 
-
+### Standardization 
 
 Some languages have gone the route of having a standards body actually maintain a standardization for their language. 
 Some prominent standards organizations that perform this are ANSI, ISO, ECMA, and IEEE. A (probably not comprehensive) list of 
@@ -99,7 +98,7 @@ arguably, that's a good thing because it means CPython and the other implementat
 Guido Van Rossum shared the code first time Feb 1991 0.9.0. The original language was in some ways 
 a reaction to limitations in the languages he was working with at the time (ABC not extensible, 
 Amoeba system calls not accessible from Bourne shell or C scripts), which may partly explain 
-why Python's design is so extensible that we have alternative implementations surfacing.
+why Python's design is so extensible that we have alternative implementations surfacing. (source)
 
 From that time, the Python community has been involved but also guided by Rossum, and several 
 mechanisms have come about as a process for enhancing the language. the semantic versioning has 
@@ -107,13 +106,15 @@ remained in place, with Major.Minor.Release(+, a0) as is commonplace to find on 
 now. Each of these versions may require an upgrade to the overall language specification. This is
 why if you go to the language reference page you can select from the most recent release version of 
 each minor version of Python to read a version of the reference tailored to that version of the
-CPython language. 
+CPython language. (source)
 
 There is a lot of history on the evolution of Python and lots of archives of conversations because 
 of the high community involvement. For example, the decision to do a major version upgrade of 
 Python from 2 to 3 that had some non-backwards compatible changes to, amongst other things, 
 remove redundant paths to the same functionality. Not really in scope for this research but all
-of these docs are fairly easy to find, either linked to Python.org or published elsewhere.
+of these docs are fairly easy to find, either linked to Python.org or published elsewhere. also, here
+is an article covering some significant upgrades between Python 2 and 3 major versions: 
+https://powerfulpython.com/blog/whats-really-new-in-python-3/
 
 On the language development side there is also a tracking mechanism for enhancement requests that is 
 open to the developer community and members of the public to read Python Enhancement Proposals (PEP). 
@@ -124,15 +125,16 @@ language about what would be required and what the benefits would be.
 ### difference between a language specification (a.k.a standard or definition) and a specification language?
 
 This is somewhat of a non-sequitor, but for those who might have been confused about the similar naming like I was, 
-Specification languages are languages created for determining program correctness.<sup>1</sup> 
+Specification languages are languages created for determining program correctness. (Tucker and Noonan) 
 if I write a program that is supposed to add to numbers and return their sum, 
 a specification language would provide me a way to prove that the program will 
-find the sum for any valid inputs. 
+find the sum for any valid inputs.
 
 So the difference could be simply described as "one tells you how language A is supposed to implemented, 
 another tells you whether a program in language A was implemented correctly"
 
-## Important language design considerations<sup>1</sup>
+## Important language design considerations
+(This whole section, see Tucker and Noonan)
 
 The three below topics, as well as other cross cutting ideas, are all fundamental to 
 language design and need to be represented in some way in the language specification.
@@ -164,44 +166,45 @@ and Python accomplishes this.
 Some (subjective) theories were discussed in other sections, but will repeat them here and elaborate for good measure:
 
 - Guido Van Rossum wanted a general purpose programming language that was extensible as an early goal of 
-  Python in the 1990s.
-    - despite having formal descriptions of lexical and syntactical concerns, the semantic model is described with natural language
+  Python in the 1990s. (sources python.org history page and interview with Rossum)
+    - despite having formal descriptions of lexical and syntactical concerns, the semantic model is described with natural language (source, reference implementation)
     - CPython as the reference implementation doesn't stop others from dreaming of other ways for interpretation, compilation and hardware virtualization to happen
 - Python has had strong community support from the beginning, developers fall in love with how expressive and simple it is, so they would rather rewrite it than use another language
 - Python is deemed a Higher Level Language (HLL) by most.
     - HLLs tend to be interpreted. Interpreters for HLLs are one more abstraction layer that can be substituted
-    - interpreted languages tend to also have performance issues
+    - interpreted languages tend to also be slower than compiled and statically typed languages, so other implementations can come in to try and close that gap
 - The Python community likes to keep their standard reference implementation familiar and carefully control its feature set, but they also embrace the existence of other implementations of the language
 
 
 ### Is Python alone with this branching behavior? What about Java, C#, C++, Javascript, Ruby, etc. which have been around a while? 
 
 Other languages do have alternate implementations, Python is not unique in this aspect. However, Python may be unique in that it celebrates this fact somewhat, 
-is proud of the malleability of its spec and advertises and encourages implementations that aren't the standard. Other languages like Java have alternate implementations, and for some of the same reasons. More often than not, these alternative implementations are just trying to enable a different group of users than the reference implementation, like people coding for browsers, embedded devices, coming from other languages, or looking for higher performance. Here are some 
-reasons for alternate implementaitons or at least partial (compiler, interpreter, etc.) for other languages: 
+is proud of the malleability of its spec to the extent that the official Python documentation mentions alternatives and Guido Van Rossum has called out implementations such as Pypy or Cython as existing solutions to performance gaps in CPython like the example here: https://www.youtube.com/watch?v=2wDvzy6Hgxg&t=1012s .. 
+
+Other languages like Java have alternate implementations, and for some of the same reasons. More often than not, these alternative implementations are just trying to enable a different group of users than the reference implementation is trying to serve, like people coding for browsers, embedded devices, coming from other languages, or looking for higher performance. Here are some reasons for and links to either complete alternate implementaitons or at least partial alternatives ( different compiler, interpreter, etc.) for other languages: 
 
 - Java<sup>7</sup>
     - As Java became more commercial and closed over the years by Sun and Oracle, open source implementations (e.g. OpenJDK) offer a way to use Java without the licensing and litigation concerns
-    - There are many compilers and transpilers both open source and proprietary that compile bytecode to machine code to run faster on target architectures
-    - just like Pypy, Java has implementations that are looking at performance boosts from JIT compilers
-    - Also similar to Pypy, there is a JVM written in Java
+    - There are many compilers and transpilers both open source and proprietary that compile bytecode to a machine code specialized for a target architecture
+    - just like Pypy, Java has implementations that are looking at performance boosts from JIT compilers (source)
+    - Also similar to Pypy, there is a JVM written in Java (source)
 - JavaScript
     - ECMAScript is the specification, and there are a variety of different 'engines' acting as interpretors for Javascript, a lot more probably than Python generally https://en.wikipedia.org/wiki/List_of_ECMAScript_engines
-- Most of these implementations are either for browser specific interfaces, smaller footprint interpreters for embedded JS and IoT devices, JIT compilation and GraalVM supports interoperability for languages. Not as much experimentation or branching of the core runtime architecture like some of the Python ones do, but again there's webassembly. . . so I guess they are doing it their own way.
+- Most of these implementations are either for browser specific interfaces, smaller footprint interpreters for embedded JS and IoT devices, JIT compilation and GraalVM supports interoperability for languages. And then there's webassembly. . . so Python isn't totally alone in very innovative offshoots, but with the ubiquitousness of JS maybe this was inevitable.
 - Ruby
-    - there are several implementations of Ruby. As a close cousin of Python at least in its layer of abstraction at runtime, Ruby seems to have a similar list of offshoots. Many of them are also now defunct, but there are some that are still actively maintained and these generally look to be supporting interoperabiliy with ruby and other languages or at least supporting cross compilation of ruby so it can be run as bytecode or machine lanugage. Rubinius is an interesting attempt to do what Pypy does for Python by writing an interpreter in Ruby, it is still porting over from C++ as of this writing it looks like.
+    - there are several implementations of Ruby. As a close cousin of Python at least in its layer of abstraction at runtime, Ruby seems to have a similar list of offshoots. Many of them are also now defunct, but there are some that are still actively maintained and these generally look to be supporting interoperabiliy with ruby and other languages or at least supporting cross compilation of Ruby so it can be run as bytecode or machine lanugage. Rubinius is an interesting attempt to do what Pypy does for Python by writing an interpreter in Ruby, it is still porting over from C++ as of this writing it looks like.
 - C# 
     - C# has an official standard referred to as the Common Language Infrastructure and a specification documentation site defined microsoft's page: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction, so does it have alternate implementations? 
     - Before I answer, just to keep you in suspense, some news on the reference implementation front for C#: it looks like they just recently open sourced their compiler code both for the higher level Roslyn Compiler and also RyuJIT, lower level just in time compiler to translate from their intermediate language to machine code. Those are standard to .NET Core https://devblogs.microsoft.com/dotnet/the-ryujit-transition-is-complete/
-    - OK, now I will answer. Yes, there are alternative implementations, though I don't see a lot of them. C# has been more proprietary for longer than the other languages on this list, so that could explain why there aren't as many, and why the few that do exist are either trying to open up usage to non-proprietary use cases (Mono, very behind the latest .NET Core versions but used by big names like Unity), or cross platform support (Elements toolchain, Xamarin)i https://en.wikipedia.org/wiki/C_Sharp_(programming_language)#Implementations
+    - OK, now I will answer. Yes, there are alternative implementations, though I don't see a lot of them. C# has been more proprietary for longer than the other languages on this list, so that could explain why there aren't as many, and why the few that do exist are either trying to open up usage to non-proprietary use cases (Mono, very behind the latest .NET Core versions but used by big names like Unity), or cross platform support (Elements toolchain, Xamarin) https://en.wikipedia.org/wiki/C_Sharp_(programming_language)#Implementations
 
 ### Performance
 
 #### GIL, concurrency and parallelism
 
-stackless Python and tasklets allow for massive cooperative asynchronous concurrency without parallelism.
+stackless Python and tasklets allow for massive cooperative asynchronous concurrency without parallelism. (source)
 
-State of concurrency and parallelism in Python is that it has had support for concurrency with threads for some time and there have been significant upgrades to it in 3.2 and up https://wiki.python.org/moin/Concurrency
+State of concurrency and parallelism in Python is that it has had support for concurrency with threads for some time and there have been significant upgrades to it in 3.2 and up https://wiki.python.org/moin/Concurrency, as well as async/await that came around 3.5.
 Python is also able to support multi core parallelism through multiprocessing. There is even support for reactive streams in python through RxPy. It seems as though you need to be more conscious of what type of concurrency you are aiming to do than with other languages as the GIL is still a concern.
 
 There have been some attempts to remove the GIL in Pypy https://morepypy.blogspot.com/2017/08/lets-remove-global-interpreter-lock.html
@@ -210,7 +213,7 @@ A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s an
 
 ### Interoperability
 
-Sometimes it is desirable to embed python scripts inside of a slightly lower level language like Java or C#, have python compile to something that a Javascript engine could run on, or have a python program that can make calls to libraries and assembly files from other languages. When this level of fusion is useful, there are Python implemenations
+Sometimes it is desirable to embed python scripts inside of a slightly lower level language like Java or C#, have Python compile to something that a Javascript engine could execute, or have a python program that can make calls to libraries and assembly files from other languages. When this level of fusion is useful, there are Python implemenations
 specifically designed to accomplish it like IronPython, Jython, Python.NET, PyJS and RubyPython.
 
 ### Types
@@ -234,7 +237,9 @@ However, rather than writing these extensions in C/C++, which has its own set of
 There is an appetite for Python in the scientific community because it is a fully featured language that is easy to work with, you can get
 something up and running quickly and iteratively with it. As a result, the community using Python for scientific applications have made a lot
 of efforts towards making Python run faster either by overcoming its limitations or extending it with new libraries that are highly optimized for
-the types of operations that are typically performed. There is a suite of packages like SciPy, Numpy, and Pandas, that rely on optimized math libraries like Linear Algebra Package (LAPACK) and Basic Linear Algebra Subprograms (BLAS) (source at bottom), and also do things like suspending the Global Interpreter lock to perform parallel operations (source) and special indexing operations (source): https://developer.ibm.com/languages/Python/articles/ba-accelerate-Python/
+the types of operations that are typically performed. 
+
+There is a suite of packages like SciPy, Numpy, and Pandas, that rely on optimized math libraries like Linear Algebra Package (LAPACK) and Basic Linear Algebra Subprograms (BLAS) (source at bottom), and also perform clever optimizations like safely suspending the Global Interpreter Lock to perform parallel operations (source) and using indexing for additional speed for the dataframe data structure (source): https://developer.ibm.com/languages/Python/articles/ba-accelerate-Python/
 
 ### Newer Python Features For Concurrency and Parallelism
 
@@ -259,6 +264,11 @@ having to write extensions in the first place
 If you have a main application built in Java or c# and you want to provide the ability for people to script plugins or 
 other features in an older version of Python, then Jython or IronPython could be a good fit. In this case you really want interoperability
 between the languages without having to deal with message transfer and handcoding a lot of serialization and deserialization yourself
+
+### You can use alternate implementations to better your understanding of how Python works and is implemented
+
+Pypy's interpreter is written in CPython, buy CPython's is written in C and is much more verbose, yet their implementation behavior matches in most cases. So, 
+you could look to Pypy as a more approachable way to learn about how Python works under the hood.
 
 ## Why Wouldn't You Switch Implementations To One Of These Whenever You Need Their Features?
 
@@ -310,16 +320,17 @@ list of python compiler projects over the years: https://github.com/pfalcon/awes
 
 ## What are their limitations?
 
-### They are often behind the curve of specification upgrades, maintained by a much smaller community
+### They are often behind the curve of version upgrades, maintained by a much smaller community
 
 The changes made to the implementation may diverge so much with CPython that if there is a problem, 
 you can't rely on the community of CPython developers to fix it. You also can't expect newer Python \
 features to make it to these implementations with the same speed that they hit the reference implementation
 
-### They aren't as stable generally
+### CPython is more stable and general purpose
 
-In some cases the alternate implementations are focused on a narrower set of use cases than what any given Python
-programmer might want to do, and so for some applications they won't match the core python behavior 
+CPython as the reference implementation has more people using it for more things. It keeps its compatibility up 
+with third party modules and highly used C extensions. Even Pypy, one of the most used alternate implementations, 
+can not keep up with this level of reliability for all usage scenarios
 
 ### Most of them put some constraint on how you write your Python
 
