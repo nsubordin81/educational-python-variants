@@ -210,7 +210,8 @@ A talk on concurrency in python ://www.youtube.com/watch?v=9zinZmE3Ogk&t=746s an
 
 ### Interoperability
 
-Sometimes it is desirable to embed python scripts inside of a slightly lower level language like Java or C#, have python compile to something that a Javascript engine could run
+Sometimes it is desirable to embed python scripts inside of a slightly lower level language like Java or C#, have python compile to something that a Javascript engine could run on, or have a python program that can make calls to libraries and assembly files from other languages. When this level of fusion is useful, there are Python implemenations
+specifically designed to accomplish it like IronPython, Jython, Python.NET, PyJS and RubyPython.
 
 ### Types
 
