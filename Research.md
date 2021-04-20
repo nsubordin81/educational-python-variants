@@ -22,6 +22,8 @@ so that implementors of the language can have consensus on what is and is not pa
 Implementations are how languages end up being coded so they can be used. Usually there is one implementation that 
 is the most widely used and accepted version, the reference implementation. Changes to the semantics and syntax of a language represent and update to the specification. In Python's case, these changes are reflected in the versions of its language reference which mirror the version of its reference implemenation, CPython.
 
+### Helpful Analogies
+
 I have a couple of useful analogies that helped me with the difference between specification and implementation, feel free to skip this next part if you're already familiar:
 
 1. The Function Interface: The first is the analogy of specifications as an interface like that of a function's interface. Just like a function's 
@@ -41,6 +43,8 @@ how fast they run, how reliable they are, whether or not they rely on lower leve
 There is a great third description of this idea in the Python language reference itself 
 
 "While I am trying to be as precise as possible, I chose to use English rather than formal specifications for everything except syntax and lexical analysis. This should make the document more understandable to the average reader, but will leave room for ambiguities. Consequently, if you were coming from Mars and tried to re-implement Python from this document alone, you might have to guess things and in fact you would probably end up implementing quite a different language. On the other hand, if you are using Python and wonder what the precise rules about a particular area of the language are, you should definitely be able to find them here. If you would like to see a more formal definition of the language, maybe you could volunteer your time — or invent a cloning machine :-)."  - probably Guido Van Rossum, python language reference https://docs.python.org/3/reference/introduction.html#alternate-implementations
+
+### Listing Of Python Implementations Compliant With Some Version Of The Language
 
 While CPython is the de facto standard implementation for implementing Python, Python.org has a list of what it recognizes as alternative implementations of the python specification, which includes IronPython, Jython, Pypy, Stackless Python, and Micro Python https://www.python.org/download/alternatives/.
 
