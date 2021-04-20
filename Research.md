@@ -87,8 +87,8 @@ level language like C this may very well be appropriate, but that is one of the 
 case Python's specification is the Python language reference and lives here: https://docs.Python.org/3/reference/index.html<sup>5</sup>
 
 Note that the very first section in the reference implementation points out that everything except for syntax
-and lexical analysis is described in natural language, and that this is intentional because this is where
-freedom to extend comes from. 
+and lexical analysis is described in natural language, and that this is intentional for readability. It also alludes
+to the idea that two different people might create a different language just looking at the spec.
 
 The document also mentions that CPython is the widespread reference implementation and implementation notes
 are provided throughout the document where special considerations having to do with that implementation.
@@ -104,7 +104,7 @@ a reaction to limitations in the languages he was working with at the time (ABC 
 Amoeba system calls not accessible from Bourne shell or C scripts), which may partly explain 
 why Python's design is so extensible that we have alternative implementations surfacing. (source)
 
-From that time, the Python community has been involved but also guided by Rossum, and several 
+From that time, the Python community has been involved but also guided by Van Rossum, and several 
 mechanisms have come about as a process for enhancing the language. the semantic versioning has 
 remained in place, with Major.Minor.Release(+, a0) as is commonplace to find on many software projects
 now. Each of these versions may require an upgrade to the overall language specification. This is
@@ -170,7 +170,7 @@ and Python accomplishes this.
 Some (subjective) theories were discussed in other sections, but will repeat them here and elaborate for good measure:
 
 - Guido Van Rossum wanted a general purpose programming language that was extensible as an early goal of 
-  Python in the 1990s. (sources python.org history page and interview with Rossum)
+  Python in the 1990s. (sources python.org history page and interview with Van Rossum)
     - despite having formal descriptions of lexical and syntactical concerns, the semantic model is described with natural language (source, reference implementation)
     - CPython as the reference implementation doesn't stop others from dreaming of other ways for interpretation, compilation and hardware virtualization to happen
 - Python has had strong community support from the beginning, developers fall in love with how expressive and simple it is, so they would rather rewrite it than use another language
