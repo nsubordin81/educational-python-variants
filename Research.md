@@ -261,7 +261,12 @@ between the languages without having to deal with message transfer and handcodin
 
 ## Why Wouldn't You Switch Implementations To One Of These Whenever You Need Their Features?
 
-The obvious one here is just lack of support for recent language features. If one part of your application
+The high level advice here, especially in a team setting or when writing code that will be maintained by others, is the same as I'd give
+for bringing in a new third party library. Do your homework on them. Are they mature? Will they still be around in a few years? 
+How much support do they have? Do they really meet your use case? Will it take longer or add overhead for others to learn to code for it? 
+Does it have a reputation for failing in unexpected ways for the type of work you expect to be doing?
+
+One thing that is probably common to all of these alternate Pythons is just lack of support for recent language features. If one part of your application
 could really benefit from just in time compilation speedup but another part relies on a 3.9 feature, as if this 
 writing you can't have both with Pypy. Similarly for stackless, but if you are doing concurrency on a massive scale and
 don't mind missing out on some newer features then maybe you don't mind ;)
