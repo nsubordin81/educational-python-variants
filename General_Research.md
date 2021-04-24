@@ -294,6 +294,7 @@ Pypy uses RPython because the interpreter needs a little more hinting to do its 
 
 ## Sources Of Information 
 (want more depth? I highly recommend (Tucker and Noonan), and thanks to Python and other implementations for generally being very good about documentation)
+There are additional sources linked throughout this page and then also on each of the pages that are specific to a language variant
 
 1. Tucker, Allen B. and Robert E. Noonan. "*Programming Languages: Principles and Paradigms.*" 2nd ed., McGraw Hill, 2007.
 2. "Programming Lanugage Specification" Wikipedia. https://en.wikipedia.org/wiki/Programming_language_specification
