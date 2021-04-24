@@ -15,10 +15,8 @@ trying to understand the benefits of python's approach to language specification
 
 ## Repo Navigation
 
-- The [Research](Research.md) markdown page contains a cleaned up version of notes I took when digging into this topic
+- The [Research](General_Research.md) markdown page contains a cleaned up version of notes I took when digging into this topic with hyperlinks and sources indicated for sections either to credit my sources or provide additional info.
 
-- There are directories in the repo for some of the more popular python implementations. They may not all have code samples but each should have at least a description 
-and some reference card information talking at a high level about their motivations, features, side benefits, and limitations.
-If you are interested in contributing more implementation versions or research in to what I have listed, let me know and I can add you as a contributor!
+- There are directories in the repo for some of the more popular python implementations. It represents some of what I learned about each with a description and some reference card information talking at a high level about their motivations when I knew of them, features, side benefits, and limitations.  If you are interested in contributing more implementation versions or research in to what I have listed, let me know and I can add you as a contributor!
 
 - the [Exercises](Exercises/) directory contains some source code and a guided walk through of the demo that I hope to give as part of the presentation. The goal there is to simulate some scenario where you can try different versions of python on a pretend project so you can get a feel for how you might experiment with and choose between them in practice.

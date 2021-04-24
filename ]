@@ -16,11 +16,9 @@
 
 ## Implementation V. Specification
 
-Language specifications are the documentation of what it means to write a program in that language, 
-so that implementors of the language can have consensus on what is and is not part of the language. (source)
+Language specifications are the documentation of what it means to write a program in that language, so that implementors of the language can have consensus on what is and is not part of the language. ("Programming Language Specification")
 
-Implementations are how languages end up being coded so they can be used. Usually there is one implementation that 
-is the most widely used and accepted version, the reference implementation. Changes to the semantics and syntax of a language represent and update to the specification. In Python's case, these changes are reflected in the versions of its language reference which mirror the version of its reference implemenation, CPython.
+Implementations are how languages end up being coded so they can be used. Usually there is one implementation that is the most widely used and accepted version, the reference implementation. Changes to the semantics and syntax of a language represent and update to the specification. In Python's case, these changes are reflected in the versions of its language reference which mirror the version of its reference implemenation, CPython.
 
 ### Helpful Analogies
 
@@ -78,92 +76,61 @@ languages that have been standardized by these orgs includes:<sup>8</sup>
 
 and more as shown here: https://en.wikipedia.org/wiki/Comparison_of_programming_languages 
 
-Python's standard is maintained apart from these organizations as described below. The rigor of the ANSI and ISO standards 
-is criticised by some because the languages become so stable they fail to be open to changes from the outside. For a low 
-level language like C this may very well be appropriate, but that is one of the advantages of Python's niche. 
+Python's standard is maintained apart from these organizations as described below. The rigor of the ANSI and ISO standards is criticised by some because the languages become so stable they fail to be open to changes from the outside. For a low level language like C this may very well be appropriate, but that is one of the advantages of Python's niche. 
 
 ### Python's Programming Language Specification
 
 case Python's specification is the Python language reference and lives here: https://docs.Python.org/3/reference/index.html<sup>5</sup>
 
-Note that the very first section in the reference implementation points out that everything except for syntax
-and lexical analysis is described in natural language, and that this is intentional for readability. It also alludes
-to the idea that two different people might create a different language just looking at the spec.
+Note that the very first section in the reference implementation points out that everything except for syntax and lexical analysis is described in natural language, and that this is intentional for readability. It also alludes to the idea that two different people might create a different language just looking at the spec.
 
-The document also mentions that CPython is the widespread reference implementation and implementation notes
-are provided throughout the document where special considerations having to do with that implementation.
+The document also mentions that CPython is the widespread reference implementation and implementation notes are provided throughout the document where special considerations having to do with that implementation.
 
-So CPython is the 'de facto' implementation of Python, but even in CPython's case there are implementation details that
-get in the way of the abstract definition of the language that the Python Language Reference attempts to provide. And,
-arguably, that's a good thing because it means CPython and the other implementations aren't fully constrained by these standards.
+So CPython is the 'de facto' implementation of Python, but even in CPython's case there are implementation details that get in the way of the abstract definition of the language that the Python Language Reference attempts to provide. And, arguably, that's a good thing because it means CPython and the other implementations aren't fully constrained by these standards.
 
 ### History of Python's specification<sup>2, 3, 4</sup>
 
-Guido Van Rossum shared the code first time Feb 1991 0.9.0. The original language was in some ways 
-a reaction to limitations in the languages he was working with at the time (ABC not extensible, 
-Amoeba system calls not accessible from Bourne shell or C scripts), which may partly explain 
-why Python's design is so extensible that we have alternative implementations surfacing. (source)
+Guido Van Rossum shared the code first time Feb 1991 0.9.0. The original language was in some ways a reaction to limitations in the languages he was working with at the time (ABC not extensible, Amoeba system calls not accessible from Bourne shell or C scripts), which may partly explain why Python's design is so extensible that we have alternative implementations surfacing. ("General Python FAQ")
 
-From that time, the Python community has been involved but also guided by Van Rossum, and several 
-mechanisms have come about as a process for enhancing the language. the semantic versioning has 
-remained in place, with Major.Minor.Release(+, a0) as is commonplace to find on many software projects
-now. Each of these versions may require an upgrade to the overall language specification. This is
-why if you go to the language reference page you can select from the most recent release version of 
-each minor version of Python to read a version of the reference tailored to that version of the
-CPython language. (source)
+From that time, the Python community has been involved but also guided by Van Rossum, and several mechanisms have come about as a process for enhancing the language. the semantic versioning has remained in place, with Major.Minor.Release(+, a0) as is commonplace to find on many software projects now. Each of these versions may require an upgrade to the overall language specification. This is why if you go to the language reference page you can select from the most recent release version of each minor version of Python to read a version of the reference tailored to that version of the CPython language. ("General Python FAQ")
 
-There is a lot of history on the evolution of Python and lots of archives of conversations because 
-of the high community involvement. For example, the decision to do a major version upgrade of 
-Python from 2 to 3 that had some non-backwards compatible changes to, amongst other things, 
-remove redundant paths to the same functionality. Not really in scope for this research but all
-of these docs are fairly easy to find, either linked to Python.org or published elsewhere. also, here
-is an article covering some significant upgrades between Python 2 and 3 major versions: 
-https://powerfulpython.com/blog/whats-really-new-in-python-3/
+There is a lot of history on the evolution of Python and lots of archives of conversations because of the high community involvement. For example, the decision to do a major version upgrade of Python from 2 to 3 that had some non-backwards compatible changes to, amongst other things, remove redundant paths to the same functionality. Not really in scope for this research but all of these docs are fairly easy to find, either linked to Python.org or published elsewhere. also, here is an article covering some significant upgrades between Python 2 and 3 major versions: https://powerfulpython.com/blog/whats-really-new-in-python-3/
 
-On the language development side there is also a tracking mechanism for enhancement requests that is 
-open to the developer community and members of the public to read Python Enhancement Proposals (PEP). 
-These can be informational but are generally proposals for changes to the language, with specific 
-language about what would be required and what the benefits would be. 
- https://www.Python.org/dev/peps/<sup>6</sup>
+On the language development side there is also a tracking mechanism for enhancement requests that is open to the developer community and members of the public to read Python Enhancement Proposals (PEP).  These can be informational but are generally proposals for changes to the language, with specific language about what would be required and what the benefits would be.  https://www.Python.org/dev/peps/<sup>6</sup>
 
 ### difference between a language specification (a.k.a standard or definition) and a specification language?
 
-This is somewhat of a non-sequitor, but for those who might have been confused about the similar naming like I was, 
-Specification languages are languages created for determining program correctness. (Tucker and Noonan) 
-if I write a program that is supposed to add to numbers and return their sum, 
-a specification language would provide me a way to prove that the program will 
-find the sum for any valid inputs.
+This is somewhat of a non-sequitor, but for those who might have been confused about the similar naming like I was, Specification languages are languages created for determining program correctness. (Tucker and Noonan) if I write a program that is supposed to add to numbers and return their sum, a specification language would provide me a way to prove that the program will find the sum correctly for any valid inputs.
 
-So the difference could be simply described as "one tells you how language A is supposed to implemented, 
-another tells you whether a program in language A was implemented correctly"
+So the difference could be simply described as "one tells you how language A is supposed to implemented, another tells you whether a program in language A was implemented correctly"
 
 ## Important language design considerations
-(This whole section, see Tucker and Noonan)
+(For this whole section, knowledge of how compilation and interpretation work was sourced from  Tucker and Noonan)
 
-The three below topics, as well as other cross cutting ideas, are all fundamental to 
-language design and need to be represented in some way in the language specification.
+Discussions of how an implemented language transforms source code into running programs, 
 
-Syntax
+### Syntax
 
-Answers the question, how do I know this program's structure is correct? What words are ok
-and where can I put them?
+Answers the question, how do I know this program's structure is correct? What words are ok and where can I put them?
 
-In language design, syntax definition is mostly accomplished through context free grammars (CFGs).
+In language design, syntax definition is mostly accomplished through context free grammars (CFGs). The Grammars are a concise way to specify the full set of possible combinations of symbols that a program will consider valid.
 
-Names and Types
+### Names and Types
 
-What is the vocabulary of the language? How does the language bind names, how does scoping work? 
-What are the values that a program can perform operations on, a.k.a the types? what kind of 
-type system is made available for language users so they can understand how to write operations, 
-how can the language protect users from making mistakes through its knowledge of types?
+What is the vocabulary of the language? How does the language bind names, how does scoping work?  What are the values that a program can perform operations on, a.k.a the types? what kind of type system is made available for language users so they can understand how to write operations, how can the language protect users from making mistakes through its knowledge of types?
 
-Semantics
+### Semantics
 
-Just like in natural language, semantics are the meaning of the programming statements. When 
-a statement is executed, what does it mean? What actually happens to the variables during an 
-assignment? How are expressions evaluated? As covered in <sup>1</sup>, There is a lot of 
-value in building Semantic models that aren't tied to one particular choice of machine, 
-and Python accomplishes this.
+Just like in natural language, semantics are the meaning of the programming statements. When a statement is executed, what does it mean? What actually happens to the variables during an assignment? How are expressions evaluated? As covered in (Tucker and Noonan), There is a lot of value in building Semantic models that aren't tied to one particular choice of machine, and Python accomplishes this with its interpreted bytecode.
+
+### High Level Steps (Tucker and Noonan again, remember, this whole section)
+
+Lexical analysis (tokenization and validation of symbols based on grammar, and removal of unnecessary symbols)
+  |
+Syntax analysis (use the language's grammar to build the sequence of instructions into a more concise and less varied form called an abstract syntax tree)
+  |
+Semantic Analysis (go from an abstract syntax tree down to either an intermediate representation in the case of python/java, or to a non-optimized 
+
 
 ## Why Are There Interesting Python Alternatives? 
 
@@ -353,9 +320,9 @@ how function execution is handled, even if it is unnecessary as Stackless advoca
 (want more depth? I highly recommend 1, and thanks to Python and other implementations for generally being very good about documentation)
 
 1. Tucker, Allen B. and Robert E. Noonan. "*Programming Languages: Principles and Paradigms.*" 2nd ed., McGraw Hill, 2007.
-2. https://en.wikipedia.org/wiki/Programming_language_specification
-3. Python General Faq page https://docs.Python.org/3/faq/general.html
-4. Oral History of Guido Van Rossum https://www.youtube.com/watch?v=Pzkdci2HDpU, Jul 26, 2018
+2. "Programming Lanugage Specification" Wikipedia. https://en.wikipedia.org/wiki/Programming_language_specification
+3. Python General Faq. Python Software Foundation. https://docs.Python.org/3/faq/general.html.
+4. Oral History of Guido Van Rossum. https://www.youtube.com/watch?v=Pzkdci2HDpU, Jul 26, 2018
 5. Python Language Reference https://docs.Python.org/3/reference/index.html
 6. Python Enhancement Proposals  https://www.Python.org/dev/peps/
 7. Other Java implementations, https://dwheeler.com/Java-imp.html#:~:text=These%20implementations%20include%20GNU's%20gcj,by%20Microsoft%20and%20by%20Mono).
@@ -363,3 +330,4 @@ how function execution is handled, even if it is unnecessary as Stackless advoca
 9. Programming Language Specification https://en.wikipedia.org/wiki/Programming_language_specification
 10. Starkiller Thesis http://michael.salib.com/writings/thesis/final.pdf - starkiller thesis
 11. Why There Are So Many Pythons https://www.toptal.com/python/why-are-there-so-many-pythons
+
