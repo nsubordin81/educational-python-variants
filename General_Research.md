@@ -137,7 +137,10 @@ Syntax analysis (use the language's grammar to build the sequence of instruction
   |  
 Semantic Analysis (go from an abstract syntax tree down to either an intermediate representation in the case of python/java, or to a non-optimized form of assembly for compiled language  
   |  
-But, for thouroughness, if you were using a strictly compiled language, there would be two more phases after semantic analysis: 
+  
+At this point if the language is like java or python, hybrid compiled/interpreted, then all the bytecode is run in a control loop on the interpreter's virtual machine program. Since that program knows how to run the bytecode and it is running already as a program targeted for the target machine's architecture, the author of the interpreter has already taken care of the platform independence and the 'virtual machine' executes on behalf of the program bytecode it was handed.
+
+We are talking about Python so this is enough actually. But, for thouroughness, if you were using a strictly compiled language, there would be two more phases after semantic analysis: 
 
   |  
 Code Optimization (take the Intermediate Code Tree and optimize it for the target machine's hardware)  
