@@ -29,7 +29,8 @@ adopted but not being fully abandoned either (krisvale)
 - Despite the extremely innovative and undeniably cool things it has been used for, there isn't enough general usage for people to dedicate the time to keep it current. I like to call this 'the VR problem' even though I'm sure other tech suffered from it way before VR it is how I feel about both of these things
 - It is a branch of CPython rather than a full on alternate implementation, contribution activity seems to go through high then low periods, not a lot of 
 maintainers
-- CPython has either approximated the most useful features that stackless would bring with threads (generators, coroutines, async), or in the case of greenlets ('stack slicing') and the pickling of these things, they pretty much moved it in wholesale without disturbing Cpython as much as stackless would (krisvale)
+- CPython has either approximated the most useful features that stackless would bring with threads (generators, coroutines, async), or in the case of greenlets ('stack slicing') and the pickling of these things, they pretty much moved it in wholesale (minus some thing like preemptively multitasking microthreads?) without disturbing Cpython as much as stackless would, further dooming its changes of ever making it into CPython (krisvale)
+
 
 ### Sources
 
@@ -39,5 +40,6 @@ maintainers
 - "greenlet 1.0.0" Python Software Foundation. https://pypi.org/project/greenlet/
 - "[Stackless-sprint] On greenlets" http://www.stackless.com/pipermail/stackless-dev/2004-March/000022.html
 - "How Do Greenlets Work?" Answer by iMom0 and Rabih Kodeih. Stack Overflow. https://stackoverflow.com/questions/3349048/how-do-greenlets-work/17447308. posted 4/12/2014
+- "Cooperative Multitasking." Denis Bilenko, gevent contributors. http://www.gevent.org/intro.html#cooperative-multitasking. 2009-2019.
 - "stackless-dev/stackless" fork from cpython. github. https://github.com/stackless-dev/stackless/tree/v3.8.0b3
 - "Stackless Python" https://wiki.c2.com/?StacklessPython. Last Updated October 25, 2009
