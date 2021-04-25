@@ -8,7 +8,7 @@ a parenthetical with the title or author inline.
 
 <!-- TOC -->
  - [Implementation V. Specification](#implementation-v-specification)
- - [Important Language Design Considerations](#important-language-design-considerations1)
+ - [Important Language Design Considerations](#important-language-design-considerations)
  - [Why Are There Interesting Python Implementation Alternatives?](#why-are-there-interesting-Python-alternatives)
  - [What Less Drastic Things Can You Do Than Reimplementing The Language?](#what-are-less-drastic-things-you-can-do-than-reimplementing)
  - [Why Make An Implementation Or Use One Over Toughing It Out with CPython?](#why-would-you-take-the-reimplementing-Python-or-using-Python-variant-approach-over-something-that-just-works-with-CPython)
@@ -131,17 +131,16 @@ Just like in natural language, semantics are the meaning of the programming stat
 
 ### High Level Steps (Tucker and Noonan again, remember, this whole section)
 
-Ok, for purely interpreted languages, like Bash, the commands are read one at a time, parsed for validity and immediately executed by the shell program. that's the simplest thing. The next two types, strictly Compiled (C/C++) and compiled then interpreted (Python, Java, Ruby), we go through more steps:
-
-Lexical analysis (tokenization and validation of symbols based on grammar, and removal of unnecessary symbols)
-  |
-Syntax analysis (use the language's grammar to build the sequence of instructions into a parse tree of the grammar or a more concise and less varied form called an abstract syntax tree)
-  |
-Semantic Analysis (go from an abstract syntax tree down to an intermediate code tree (in python this is tree of bytecode instructions I belive)  
-
+Lexical analysis (tokenization and validation of symbols based on grammar, and removal of unnecessary symbols)  
+  |  
+Syntax analysis (use the language's grammar to build the sequence of instructions into a more concise and less varied form called an abstract syntax tree)  
+  |  
+Semantic Analysis (go from an abstract syntax tree down to either an intermediate representation in the case of python/java, or to a non-optimized form of assembly for compiled language  
+  |  
+  
 At this point if the language is like java or python, hybrid compiled/interpreted, then all the bytecode is run in a control loop on the interpreter's virtual machine program. Since that program knows how to run the bytecode and it is running already as a program targeted for the target machine's architecture, the author of the interpreter has already taken care of the platform independence and the 'virtual machine' executes on behalf of the program bytecode it was handed.
 
-But, for thouroughness, if you were using a strictly compiled language, there would be two more phases after semantic analysis: 
+We are talking about Python so this is enough actually. But, for thouroughness, if you were using a strictly compiled language, there would be two more phases after semantic analysis: 
 
   |  
 Code Optimization (take the Intermediate Code Tree and optimize it for the target machine's hardware)  
