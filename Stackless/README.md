@@ -40,3 +40,4 @@ maintainers
 - "[Stackless-sprint] On greenlets" http://www.stackless.com/pipermail/stackless-dev/2004-March/000022.html
 - "How Do Greenlets Work?" Answer by iMom0 and Rabih Kodeih. Stack Overflow. https://stackoverflow.com/questions/3349048/how-do-greenlets-work/17447308. posted 4/12/2014
 - "stackless-dev/stackless" fork from cpython. github. https://github.com/stackless-dev/stackless/tree/v3.8.0b3
+- "Stackless Python" https://wiki.c2.com/?StacklessPython. Last Updated October 25, 2009
