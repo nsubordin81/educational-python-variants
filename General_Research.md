@@ -137,7 +137,12 @@ Syntax analysis (use the language's grammar to build the sequence of instruction
   |  
 Semantic Analysis (go from an abstract syntax tree down to either an intermediate representation in the case of python/java, or to a non-optimized form of assembly for compiled language  
   |  
+But, for thouroughness, if you were using a strictly compiled language, there would be two more phases after semantic analysis: 
 
+  |  
+Code Optimization (take the Intermediate Code Tree and optimize it for the target machine's hardware)  
+  |  
+Code Generation (generate the actual machine code (binary) necessary to run the code on the target machine
 
 
 ## Why Are There Interesting Python Alternatives? 
