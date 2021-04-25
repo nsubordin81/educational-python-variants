@@ -1,4 +1,4 @@
-# Cython
+# CPython
 
 <!-- TOC -->
 - [Reference Card](#reference-card)
