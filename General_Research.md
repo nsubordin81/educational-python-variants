@@ -8,7 +8,7 @@ a parenthetical with the title or author inline.
 
 <!-- TOC -->
  - [Implementation V. Specification](#implementation-v-specification)
- - [Important Language Design Considerations](#important-language-design-considerations1)
+ - [Important Language Design Considerations](#important-language-design-considerations)
  - [Why Are There Interesting Python Implementation Alternatives?](#why-are-there-interesting-Python-alternatives)
  - [What Less Drastic Things Can You Do Than Reimplementing The Language?](#what-are-less-drastic-things-you-can-do-than-reimplementing)
  - [Why Make An Implementation Or Use One Over Toughing It Out with CPython?](#why-would-you-take-the-reimplementing-Python-or-using-Python-variant-approach-over-something-that-just-works-with-CPython)
