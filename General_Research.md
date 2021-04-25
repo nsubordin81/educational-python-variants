@@ -269,7 +269,7 @@ So when it comes to switching implementations just for a performance boost or be
 
 I'm sure the Python developer community would have very detailed and pointed reasons for each of the alternate implementations we've covered. My view on this after studying it a fair bit is this: generally, alternative implementations of Python are willing to substantially change core parts of the language's implementation in order to get one very cool feature. If the changes were less drastic, then these wouldn't be alternate implementations, they'd be modules, frameworks or some other type of extension. if you are a Python language developer, you already have a lot of things to be concerned with, such as not introducing incompatible changes, and continuing to support features that rely on the existing interpreter and VM.
 
-Most of the alternative implementations require changing the bytecode and vm that the interpreter uses or modifying something else core to the language (dependency on the C stack in the case of stackless). While these have stabilized into their own usable forms, maintainers of the language would be dealing with a lot of new complexity and fundamental shifts in the language if they were to bring in these features. That doesn't stop them from being under consideration as PEPs though, it is just more likely that they will either be deferred indefinitely or you'll see a more consensus driven form of them incorporated down the line (greenlets could be thought of as an example of this for Stackless Python, and maybe we'll eventually se a JIT compiler introduced into CPython)
+Most of the alternative implementations require changing the bytecode and vm that the interpreter uses or modifying something else core to the language (dependency on the C stack in the case of stackless). While these have stabilized into their own usable forms, maintainers of the language would be dealing with a lot of new complexity and fundamental shifts in the language if they were to bring in these features. It could also break CPython's compatibility with other python variants that already exist. For example, this PEP on Generators throws out a cautionary note that going stackless could break the semantics of the Jython interpreter: https://www.python.org/dev/peps/pep-0255/. That doesn't stop stackless from being under consideration as PEPs though, it is just more likely that they will either be deferred indefinitely or you'll see a more consensus driven form of them incorporated down the line (greenlets could be thought of as an example of this for Stackless Python, and maybe we'll eventually se a JIT compiler introduced into CPython)
 
 ## What are some interesting implementations?
 
@@ -277,6 +277,10 @@ Python.org and the language reference docs both list what python considers to be
 
 more comprehensive list of python implementations https://wiki.python.org/moin/PythonImplementations
 list of python compiler projects over the years: https://github.com/pfalcon/awesome-python-compilers
+
+## Can you mix and match?
+
+Yeah you can in some cases! For example, you could have multiple runtime environments that are optimized for performance in different ways, like some code that is written in CPython with C extensions that you compiled in Cython, and another portion that is written in Pypy that maybe has C extensions compiled to work with it, and running in stackless mode because maybe it needs multitasking also. It really depends on your use case
 
 ## What are their limitations?
 
