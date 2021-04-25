@@ -29,11 +29,17 @@
 Directly lifted this list from jython.org's landing page: 
 #### Who Uses Jython?
 IBM Websphere - Use Jython to provide administrative scripting capabilities.
+
 Apache PIG - Use Jython to support user defined functions.
+
 ImageJ - Use Jython to provide scripted image processing.
+
 GDA - Use Jython to script scientific experiments.
+
 Robot Framework - A generic test automation framework for acceptance testing and acceptance test-driven development (ATDD) which runs on Jython.
+
 TigerJython - An educational programming environment that is based on Jython.
+
 JEM/JythonMusic - An environment for music making and creative programming using Jython.
 
 
