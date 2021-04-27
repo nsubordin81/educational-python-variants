@@ -35,4 +35,4 @@
 "PyPy", "Pypy-Features", "Pypy-Compatibility." The PyPy Team. https://www.pypy.org/ (/features.html, /compat.html). 2021
 "Using PyPy instead of Python for speed." Niklas Bivald. https://www.youtube.com/watch?v=1n9KMqssn54&t=712s. uploaded 10/6/2017 by PyCon Sweden.
 "Cython, pybind11, cffi - which tool should you choose?." Stefan Behnel. http://blog.behnel.de/posts/cython-pybind11-cffi-which-tool-to-choose.html#:~:text=When%20it%20comes%20to%20wrapping,a%20Python%20API%20for%20them.&text=CFFI%20is%20Python%20with%20a,libraries%20from%20regular%20Python%20code. Posted Sept. 15, 2018.
-"Getting Started with RPython." The Pypy Project Revision 73e7c4e0b67d. https://rpython.readthedocs.io/en/latest/getting-started.html. 2016.
+"Getting Started with RPython.", "The RPython Toolchain." "JIT documentation" The Pypy Project Revision 73e7c4e0b67d. https://rpython.readthedocs.io/en/latest/getting-started.html (/translation.html, /jit/index.html). Copyright 2016, accessed April 24, 2021.
