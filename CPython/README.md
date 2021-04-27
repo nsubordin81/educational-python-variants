@@ -21,6 +21,7 @@ None, this is the reference implementation. There are changes between versions  
 - libs like numpy, pandas etc. are built to work well with CPython first, other Python implementaitons build to them
 
 ### Applications
+- Pretty much any general purpose python application where you don't really need something offered by the other implementations
 
 ### Limitations
 - Speed, running interpreted bytecode is going to slow you down every time, as is your first run that does the hidden runtime compilation
