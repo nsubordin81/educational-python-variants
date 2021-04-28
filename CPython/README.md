@@ -39,5 +39,5 @@ https://www.ics.uci.edu/~brgallar/week9_3.html
 "See Python run: Getting to know your Python interpreter" James Bennett. https://www.youtube.com/watch?v=tzYhv61piNY. uploaded 11/3/2019 by North Bay Python.
 "Executing the Python Script" Rahul Saini. https://medium.com/@rahul77349/executing-the-python-script-afb5f45ffa41. Sept. 26, 2019
 "Inside The Python Virtual Machine" https://leanpub.com/insidethepythonvirtualmachine/read
-"Architecture of Python Virtual Machine" https://jasonleaster.github.io/2016/02/21/architecture-of-python-virtual-machine/. Feb 21, 2016.
+"Architecture of Python Virtual Machine" https://jasonleaster.github.io/2016/02/21/architecture-of-python-virtual-machine/. Feb 21, 2016.  
 "Keynote: My Path to Becoming A Python Core Developer" Emily Morehouse. YouTube. https://www.youtube.com/watch?v=rOzUMQW4p0Y. Apr 16, 2019.
