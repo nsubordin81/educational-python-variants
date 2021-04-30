@@ -5,6 +5,9 @@
 # Blueprints for a Serpent - educational-python-variants
 exploration of different python implementations
 
+## Presentation Link From Pydistrict:
+https://www.youtube.com/watch?v=wDnLNSzklzw
+
 ## Disclaimer and Purpose of This Page
  I am not a programming language designer, compiler author, or core developer for python or any other language. At least not yet :). 
  
