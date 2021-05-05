@@ -306,6 +306,14 @@ CPython as the reference implementation has more people using it for more things
 
 Pypy uses RPython because the interpreter needs a little more hinting to do its JIT generation magic. Cython needs type declarations so it can compile down to C. Stackless doesn't use the c stack, so in some ways that is a departure from the way you might think about how function execution is handled, even if the runtime stack is an unnecessarily restrictive structure as Stackless advocates will claim
 
+### Addendums
+
+On the same night I gave this presentation and for a few days afterwards, several notable python variants surfaced that I hadn't even known about beforehand. I wanted to mention them here: 
+
+1. RustPython - python interpreter in rust? https://github.com/RustPython/RustPython
+2. Cinder - instagram's augmented python that includes a JIT compiler with some interesting innovations, they are lobbying for its inclusion in CPython, which would be a big deal: https://github.com/facebookincubator/cinder
+3. Hy - an embedded general purpose Lisp variant that is basically an alternate syntax for writing python programs. Safe to say this might be a different language altogether but at the same time it is built to be compatible with standard python. So this is more like Hy is to python as clojure is to Java territory which was out of scope for the talk but very interesting indeed if you lilke writing functional style code and python https://docs.hylang.org/en/alpha/whyhy.html
+
 ## Sources Of Information 
 (want more depth? I highly recommend (Tucker and Noonan), and thanks to Python and other implementations for generally being very good about documentation)
 There are additional sources linked throughout this page and then also on each of the pages that are specific to a language variant
